@@ -9,12 +9,12 @@ const Navbar = () => {
     <div className={navbarStyles.navbar}>
       <div className={navbarStyles.navbarLeft}>
         <Link href="/">
-          <a className={navbarStyles.navbarLinkLeft}>Home</a>
+          Home
         </Link>
       </div>
       <div className={navbarStyles.navbarRight}>
         <Link href="/posts">
-          <a className={navbarStyles.navbarLinkRight}>Posts</a>
+           Posts
         </Link>
         {!session && (
   <div
