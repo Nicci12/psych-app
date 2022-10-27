@@ -3,6 +3,7 @@ import navbarStyles from "../../styles/navbar.module.css";
 import { useSession, signIn, signOut } from "next-auth/react"
 
 
+
 const Navbar = () => {
     const { data: session } = useSession()
   return (

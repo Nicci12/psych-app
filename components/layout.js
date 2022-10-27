@@ -1,6 +1,5 @@
-import Head from 'next/head'
 import Image from 'next/image'
-import styles from './layout.module.css'
+import layoutStyles from  '../styles/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Navbar from './Navigation/Navbar'
@@ -10,9 +9,10 @@ export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div className={layoutStyles.container}>
+
       <Navbar />
-      <header className={styles.header}>
+      <header className={layoutStyles.header}>
         {home ? (
           <>
             <Image
@@ -49,7 +49,7 @@ export default function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={layoutStyles.backToHome}>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
