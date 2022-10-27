@@ -1,4 +1,4 @@
-import postsList from '../../components/posts/postsList';
+import PostsList from '../../components/posts/postsList';
 
 export default function Categories({ categoriesObj }) {
     return (
@@ -7,7 +7,7 @@ export default function Categories({ categoriesObj }) {
           return (
             <div key={category}>
               <h2>{category}</h2>
-              <postsList
+              <PostsList
                 category={category}
                 categoryPosts={categoriesObj[category]}
               />
