@@ -1,13 +1,34 @@
-.heading2Xl {
-  font-size: 2.5rem;
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap');
+
+.heading {
+  font-family: 'Delius', cursive;
+  text-align: center;
+  align-items: center;
+  font-size: 3rem;
   line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.05rem;
-  margin: 1rem 0;
+  margin: 1rem 0 0 3rem;
+}
+
+.siteTitle {
+  text-align: center;
+  font-family: 'Delius', cursive;
+  align-items: center;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0 0 3rem;
+}
+
+img.picture{
+  display: flex;
+  align-content: center;
+  border-radius: 50%;
 }
 
 .headingXl {
-  font-size: 2rem;
+  font-size: rem;
   line-height: 1.3;
   font-weight: 800;
   letter-spacing: -0.05rem;
@@ -15,6 +36,7 @@
 }
 
 .headingLg {
+  text-align: center;
   font-size: 1.5rem;
   line-height: 1.4;
   margin: 1rem 0;
@@ -49,4 +71,11 @@
 
 .lightText {
   color: #666;
+}
+
+.container{
+  margin: 200px 15px 15px 15px;
+  display: flex;
+  justify-content: center;
+  
 }

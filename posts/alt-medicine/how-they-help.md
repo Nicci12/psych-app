@@ -1,6 +1,6 @@
 ---
 title: "One Example Post"
-image: "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=800"
+image: "https://pancan.org/wp-content/uploads/2018/10/herbal-medicine-733x450.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "1"

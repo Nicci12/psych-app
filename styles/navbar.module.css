@@ -1,42 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap');
+
+
 .navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: aliceblue;
-    padding: 10px;
-    z-index: 100;
-  }
-  
-  .navbarLeft {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  .navbarRight {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  .navbarLinkLeft {
-    color: #0070f3;
-    cursor: pointer;
-    margin-right: 15px;
-  }
-  
-  .navbarLinkRight {
-    color: #0070f3;
-    cursor: pointer;
-    margin-left: 15px;
-  }
-  
-  .navbarLinkLeft:hover,
-  .navbarLinkRight:hover {
-    color: violet;
-    margin-left: 15px;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #A66CFF;
+  padding: 10px;
+  z-index: 100;
+}
+
+.navbarLeft {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbarRight {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.navbarLinkLeft {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.navbarLinkRight {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+/* .navbarButton:hover {
+  color: #3033fa;
+  margin-left: 15px;
+}
+
+.navbarLinkLeft:hover,
+.navbarLinkRight:hover {
+  color: #9C9EFE;
+  margin-right: 15px;
+} */
+
+.navbarButton {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: 700;
+  border: none;
+}
