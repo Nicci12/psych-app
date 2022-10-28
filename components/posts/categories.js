@@ -1,4 +1,5 @@
 import PostsList from '../../components/posts/postsList';
+import layoutStyles from "../../styles/layout.module.css";
 
 export default function Categories({ categoriesObj }) {
     return (
@@ -6,7 +7,7 @@ export default function Categories({ categoriesObj }) {
         {Object.keys(categoriesObj).map((category) => {
           return (
             <div key={category}>
-              <h2>{category}</h2>
+              <h2 className={layoutStyles.category}>{category}</h2>
               <PostsList
                 category={category}
                 categoryPosts={categoriesObj[category]}

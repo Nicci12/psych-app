@@ -1,9 +1,9 @@
 ---
 title: "Second Example Post"
-image: "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=800"
+image: "https://www.evergladesuniversity.edu/wp-content/uploads/2017/07/alternative-medicine-everglades-u-770x400.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
-uid: "1"
+uid: "2"
 ---
 
 

@@ -25,7 +25,6 @@ img.picture{
   display: flex;
   align-content: center;
   border-radius: 50%;
-  border: 5px solid blue;
 }
 
 .headingXl {
