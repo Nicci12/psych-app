@@ -1,11 +1,23 @@
 ---
-title: "Second Example Post"
+title: "How hypnosis works"
 image: "https://thumbs.dreamstime.com/b/hypnosis-practice-concept-vector-illustration-hypnotherapy-session-subconscious-research-psychiatrist-assistance-altered-state-191141814.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "4"
 ---
 
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
 
 ## Massa id neque aliquam
 

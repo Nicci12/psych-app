@@ -79,3 +79,9 @@ img.picture{
   justify-content: center;
   
 }
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}

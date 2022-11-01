@@ -1,10 +1,22 @@
 ---
-title: "Second Example Post"
+title: "different-types-of-alternative-medicine"
 image: "https://www.evergladesuniversity.edu/wp-content/uploads/2017/07/alternative-medicine-everglades-u-770x400.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "2"
 ---
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
+
+###### https://www.youtube.com/embed/iOULvQUAjfM
 
 
 ## Massa id neque aliquam

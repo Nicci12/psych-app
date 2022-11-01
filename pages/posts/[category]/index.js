@@ -1,4 +1,3 @@
-import Layout from "../../../components/layout";
 import {getCategoryPaths, getSortedPostsData} from '../../../lib/posts'
 import Categories from '../../../components/posts/categories'
 
