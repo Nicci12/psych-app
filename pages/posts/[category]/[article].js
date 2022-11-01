@@ -42,9 +42,8 @@ export async function getStaticProps({ params }) {
       return itemH6;
     }
   });
-  console.log(updatedContentH6);
+  // postData["contentHtml"] = updatedContentH2.join("");
   postData["contentHtml"] = updatedContentH6.join("");
-
   const categories = getCategories();
   const categoriesObj = {};
   categories.forEach((fileName) => {
