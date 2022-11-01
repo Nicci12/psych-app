@@ -1,8 +1,7 @@
-import Head from "next/head";
 import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 import { getCategories, getSortedPostsData } from "../lib/posts";
-import React, { useEffect } from "react";
+import React, {useState } from "react";
 import Navbar from "../components/Navigation/Navbar";
 
 export const name = "Welcome to Alternative Wellness";
@@ -23,9 +22,18 @@ export async function getStaticProps() {
 }
 
 export default function Home() {
+  const [search, setSearch] = useState("")
+
+  function handleChange(e){
+    setSearch(e.target.value)
+  }
+
   return (
     <>
       <Navbar />
+        <div>
+      <input placeholder="Search" type="text" className={utilStyles.navbar} value={search} onChange={handleChange}/>
+      </div>
       <div className={utilStyles.container}>
         <Image
           className={utilStyles.picture}
@@ -39,6 +47,7 @@ export default function Home() {
           <h2 className={utilStyles.siteTitle}>{siteTitle}</h2>
         </div>
       </div>
+    
     </>
   );
 }

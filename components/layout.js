@@ -1,5 +1,4 @@
 import layoutStyles from "../styles/layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Navbar from "./Navigation/Navbar";
 

@@ -1,8 +1,12 @@
+import React, {useEffect, useState} from "react";
 import { getCategories, getSortedPostsData } from "../../lib/posts";
 import Layout from "../../components/layout";
 import Categories from "../../components/posts/categories";
 
+
+
 export default function Posts({ categoriesObj }) {
+
   return (
     <Layout>
       <Categories categoriesObj={categoriesObj} />
