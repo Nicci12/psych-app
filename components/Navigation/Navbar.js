@@ -1,12 +1,11 @@
 import Link from "next/link";
 import navbarStyles from "../../styles/navbar.module.css";
-import { useSession, signIn, signOut } from "next-auth/react";
+import {signIn, signOut } from "next-auth/react";
 import React, { useEffect } from "react";
 import { useAuthContext } from "../../context/authContext";
 
 
 const Navbar = () => {
-  const { session } = useSession();
   const authContext = useAuthContext();
 
   useEffect(() => {
@@ -24,9 +23,9 @@ const Navbar = () => {
         <Link href="/posts">
           <a className={navbarStyles.navbarLinkRight}>Posts</a>
         </Link>
-        {!session && (
+        {!authContext.user && (
           <button
-            className={navbarStyles.navbarLinkRight}
+            className={navbarStyles.navbarButton}
             onClick={() => {
               signIn();
             }}
@@ -34,9 +33,9 @@ const Navbar = () => {
             Sign In
           </button>
         )}
-        {session && (
+        {authContext.user && (
           <button
-            className={navbarStyles.navbarLinkRight}
+            className={navbarStyles.navbarButton}
             onClick={() => {
               signOut();
             }}

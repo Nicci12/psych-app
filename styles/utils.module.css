@@ -74,7 +74,7 @@ img.picture{
 }
 
 .container{
-  margin: 200px 15px 15px 15px;
+  margin: 100px 15px 15px 15px;
   display: flex;
   justify-content: center;
   
@@ -84,4 +84,72 @@ img.picture{
   display: flex;
   flex-direction: column;
   margin-top: 70px;
+  width: 90%;
+ padding: 10px 10px 10px 10px;
+ border-radius: 19px;
+ font-size: larger;
+}
+
+
+.searchDiv{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%
+
+}
+
+.div{
+  margin-left: 150px;
+}
+
+
+
+.button-2 {
+  overflow: visible;
+}
+
+.button-2::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .3s;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.button-2:hover::after {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.button-2::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transition: all .3s;
+  z-index: 1;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.button-2:hover::before {
+  width: 100%;
+}
+
+.button-2 span{
+  letter-spacing: 0px;
+  transition: all .3s;
+}
+
+.button-2:hover span{
+  letter-spacing: 2px;
 }

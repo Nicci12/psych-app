@@ -49,16 +49,15 @@
   font-weight: 700;
 }
 
-/* .navbarButton:hover {
-  color: #3033fa;
-  margin-left: 15px;
+ .navbarButton:hover {
+  border: 1px solid white;
+  
 }
 
 .navbarLinkLeft:hover,
 .navbarLinkRight:hover {
-  color: #9C9EFE;
-  margin-right: 15px;
-} */
+  border: 1px solid white;
+} 
 
 .navbarButton {
   color: black;

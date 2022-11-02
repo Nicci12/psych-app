@@ -1,6 +1,6 @@
 import layoutStyles from "../styles/layout.module.css";
 import Link from "next/link";
-import Navbar from "./Navigation/Navbar";
+import Navbar from "../components/Navigation/Navbar";
 
 export default function Layout({ children, home }) {
   return (
