@@ -1,7 +1,6 @@
 import { SessionProvider } from "next-auth/react";
 import { AuthContextProvider } from "../context/authContext";
 import "../styles/global.css";
-import Navbar from "../components/navigation/Navbar";
 
 export default function App({
   Component,
