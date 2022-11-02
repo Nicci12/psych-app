@@ -15,11 +15,16 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (session) {
-      const mongoUser = getUserByEmail({ email: session.user.email});
-      console.log(mongoUser)
-      setUser(session.user);
+      const mongoUser = getUserByEmail({ email: session.user.email });
+      mongoUser.then((data) => setUser({ ...session.user, ...data.user }));
     }
   }, [session]);
+  
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+    }
+  }, [user]);
   
   return (
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
