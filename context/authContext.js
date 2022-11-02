@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
 import React, { useContext, useEffect, useState } from "react";
-import { getUserByEmail } from "../lib/mongo";
+import { getUserByEmail } from "../lib/mongo/users";
 
 
 const AuthContext = React.createContext();
@@ -15,7 +15,7 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (session) {
-      const mongoUser = getUserByEmail();
+      const mongoUser = getUserByEmail({ email: session.user.email});
       console.log(mongoUser)
       setUser(session.user);
     }
