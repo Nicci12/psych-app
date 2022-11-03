@@ -39,7 +39,7 @@ export default function Home() {
     <>
       <Navbar />
       <div className={utilStyles.searchDiv}>
-      <input type="text" placeholder="search here" className={utilStyles.navbar} onChange={handleChange} />
+      <input type="text" placeholder="Search Here" className={utilStyles.navbar} onChange={handleChange} />
       </div>
       <div className={utilStyles.container}>
         <Image

@@ -6,14 +6,13 @@ export default async (req, res) => {
   const session = await unstable_getServerSession(req, res, authOptions);
   const method = req.method;
   const email = req.query.email;
-  
+
   if (session) {
     const client = await clientPromise;
     const db = client.db();
-   
     switch (method) {
-      case 'GET':
-        console.log(email)
+      case "GET":
+        console.log(email);
         let user = await db.collection("users").findOne({ email: email });
 
         if (user) {
@@ -30,10 +29,10 @@ export default async (req, res) => {
           await db.collection("users").updateOne(existingUser, updateDocument);
         } else {
           const newUser = {
-            email: email,
-            name: session.user.name,
+            Email: email,
+            Name: session.user.name,
             image: session.user.image,
-            role: "guest",
+            Role: "guest",
             date_created: new Date(),
             last_login: new Date(),
           };
@@ -43,16 +42,17 @@ export default async (req, res) => {
             _id: userDB.insertedId,
           };
         }
-        res.status(200).json({ user })
-        break
-      case 'PUT':
-        // Update or create data in your database
-        res.status(200).json({})
-        break
+        res.status(200).json({ user });
+        break;
+      case "PUT":
+        const parsedReq = JSON.parse(req.body);
+        console.log(parsedReq);
+        res.status(200).json({ user: "update user" });
+        break;
       default:
-        res.setHeader('Allow', ['GET', 'PUT'])
-        res.status(405).end(`Method ${method} Not Allowed`)
-      }
+        res.setHeader("Allow", ["GET", "PUT"]);
+        res.status(405).end(`Method ${method} Not Allowed`);
+    }
     res.json({ user: "get user" });
   } else {
     res.json({

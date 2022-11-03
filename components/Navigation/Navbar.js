@@ -7,11 +7,6 @@ import { useAuthContext } from "../../context/authContext";
 
 const Navbar = () => {
   const authContext = useAuthContext();
-
-  useEffect(() => {
-    console.log(authContext);
-  }, [authContext]);
-
   return (
     <div className={navbarStyles.navbar}>
       <div className={navbarStyles.navbarLeft}>
