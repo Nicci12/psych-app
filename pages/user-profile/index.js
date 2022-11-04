@@ -5,32 +5,51 @@ import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import profileStyles from "../../styles/profile.module.css";
 import { updateUserProfile } from "../../lib/mongo/users";
-
+import Loader from "../../components/utility/Loader";
 
 export default function MyProfile() {
   const authContext = useAuthContext();
   const [formData, setFormData] = useState();
+  const [loadingEdit, setLoadingEdit] = useState(false);
   
   const handleInputChange = (e, inputKey) => {
     setFormData({ ...formData, [inputKey]: e.target.value });
   };
-  
-  useEffect(() => {
-    console.log("form data", formData);
-  }, [formData]);
-  
-  
-  const handleSaveClicked = async () => {
-    const response = await updateUserProfile(formData);
-    console.log(response);
-  };
-  
 
   useEffect(() => {
     if (!authContext.user && !authContext.isUserLoading) {
       router.push("/");
     }
+
+    if (authContext.user) {
+      setFormData(authContext.user.details);
+    }
   }, [authContext.user]);
+
+  const handleSaveClicked = async () => {
+    setLoadingEdit(true);
+    const updatedDate = new Date();
+    const response = await updateUserProfile({
+      ...formData,
+      user_id: authContext.user._id,
+      date_updated: updatedDate,
+    });
+    if (response.message) {
+      authContext.setUser({
+        ...authContext.user,
+        details: {
+          ...authContext.user.details,
+          ...formData,
+          date_updated: updatedDate,
+        },
+      });
+      setLoadingEdit(false);
+    }
+  };
+
+  useEffect(() => {
+    console.log(loadingEdit);
+  }, [loadingEdit]);
 
   return (
     <>
@@ -44,7 +63,7 @@ export default function MyProfile() {
               if (!userKey.includes("_id")) {
                 if (userKey === "image") {
                   return <img src={`${authContext.user[userKey]}`} />;
-                } else {
+                } else if (userKey !== "details") {
                   return (
                     <div key={userKey.id}>
                       {`${userKey}: ${authContext.user[userKey]}`}
@@ -53,11 +72,18 @@ export default function MyProfile() {
                 }
               }
             })}
-            <input
-              type="date"
-              onChange={(e) => handleInputChange(e, "birthday")}
-            />
-            <button onClick={handleSaveClicked}>Save</button>
+          <input
+            type="date"
+            onChange={(e) => handleInputChange(e, "birthday")}
+            value={
+              formData && formData.birthday
+                ? formData.birthday
+                : new Date().toJSON().split("T")[0]
+            }
+          />
+
+          {!loadingEdit && <span onClick={handleSaveClicked}>Save</span>}
+          {loadingEdit && <Loader />}
         </div>
       </Layout>
     </>

@@ -34,7 +34,7 @@ const AuthContextProvider = ({ children }) => {
     console.log(isUserLoading)
   }, [isUserLoading]);
   return (
-    <AuthContext.Provider value={{ user, isUserLoading}}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, setUser, isUserLoading}}>{children}</AuthContext.Provider>
   );
 };
 
