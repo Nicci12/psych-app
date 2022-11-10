@@ -26,3 +26,12 @@ img {
 max-width: 100%;
 border-radius: 50%;
 }
+
+h4{
+  text-transform: uppercase;
+  color:black;
+}
+
+span{
+  color: black;
+}

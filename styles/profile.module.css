@@ -1,4 +1,5 @@
 .container{
+  color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,9 +10,10 @@
 }
 
 .heading{
+  color: black;
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
+    margin-top: 50px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
 }

@@ -43,44 +43,152 @@ export default function MyProfile() {
           date_updated: updatedDate,
         },
       });
-      setLoadingEdit(false);
-      authContext.user.details
     }
+    setLoadingEdit(false);
+    console.log(authContext.user.details);
   };
 
   return (
     <>
       <Layout>
         <div className={profileStyles.heading}>
-          <h1>User Profile</h1>
-        </div>
-        <div className={profileStyles.container}>
-          {authContext.user &&
-            Object.keys(authContext.user).map((userKey) => {
-              if (!userKey.includes("_id")) {
-                if (userKey === "image") {
-                  return <img src={`${authContext.user[userKey]}`} />;
-                } else if (userKey !== "details") {
-                  return (
-                    <div key={userKey.id}>
-                      {`${userKey}: ${authContext.user[userKey]}`}
-                    </div>
-                  );
+          <span>
+            {" "}
+            <h1>Welcome Back</h1>
+            {authContext.user &&
+              Object.keys(authContext.user).map((userKey) => {
+                if (!userKey.includes("_id")) {
+                  if (userKey === "name") {
+                    return (
+                      <h1 key={userKey._id}>
+                        {`${authContext.user[userKey]}`}
+                      </h1>
+                    );
+                  }
                 }
-              }
-            })}
-          <input
-            type="date"
-            onChange={(e) => handleInputChange(e, "birthday")}
-            value={
-              formData && formData.birthday
-                ? formData.birthday
-                : new Date().toJSON().split("T")[0]
-            }
-          />
+              })}
+          </span>
+        </div>
+        <div className="container py-5 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col col-lg-6 mb-4 mb-lg-0">
+              <div className="card mb-3">
+                <div className="row g-0">
+                  <div className="col-md-4 gradient-custom text-center text-white">
+                    {authContext.user &&
+                      Object.keys(authContext.user).map((userKey) => {
+                        if (!userKey.includes("_id")) {
+                          if (userKey === "image") {
+                            return (
+                              <img
+                                key={userKey._id}
+                                alt="Avatar"
+                                className="img-fluid my-5"
+                                src={`${authContext.user[userKey]}`}
+                              />
+                            );
+                          }
+                        }
+                      })}
 
-          {!loadingEdit && <button onClick={handleSaveClicked}>Save</button>}
-          {loadingEdit && <Loader />}
+                    {authContext.user &&
+                      Object.keys(authContext.user).map((userKey) => {
+                        if (!userKey.includes("_id")) {
+                          if (userKey === "role") {
+                            return (
+                              <h4 key={userKey._id}>
+                                {`${userKey}: ${authContext.user[userKey]}`}
+                              </h4>
+                            );
+                          }
+                        }
+                      })}
+                    <input
+                      type="date"
+                      onChange={(e) => handleInputChange(e, "birthday")}
+                      value={
+                        formData && formData.birthday
+                          ? formData.birthday
+                          : new Date().toJSON().split("T")[0]
+                      }
+                    />
+                    <button onClick={handleSaveClicked}>Save</button>
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body p-4">
+                      <h6>Information</h6>
+                      <hr className="mt-0 mb-4" />
+                      <div className="row pt-1">
+                        <div className="col-6 mb-3">
+                          <h6>Name</h6>
+
+                          {authContext.user &&
+                            Object.keys(authContext.user).map((userKey) => {
+                              if (!userKey.includes("_id")) {
+                                if (userKey === "name") {
+                                  return (
+                                    <p className="text-mute" key={userKey._id}>
+                                      {`${authContext.user[userKey]}`}
+                                    </p>
+                                  );
+                                }
+                              }
+                            })}
+                        </div>
+                        <div className="col-6 mb-3">
+                          <h6>Email</h6>
+                          {authContext.user &&
+                            Object.keys(authContext.user).map((userKey) => {
+                              if (!userKey.includes("_id")) {
+                                if (userKey === "last_login") {
+                                  return (
+                                    <p className="text-mute" key={userKey._id}>
+                                      {`${authContext.user[userKey]}`}
+                                    </p>
+                                  );
+                                }
+                              }
+                            })}
+                        </div>
+                        <h6>Login In Details</h6>
+                        <hr className="mt-0 mb-4" />
+                        <div className="col-6 mb-3">
+                          <h6>Login In Details</h6>
+                          {authContext.user &&
+                            Object.keys(authContext.user).map((userKey) => {
+                              if (!userKey.includes("_id")) {
+                                if (userKey === "date_created") {
+                                  return (
+                                    <p className="text-mute" key={userKey._id}>
+                                      {`${authContext.user[userKey]}`}
+                                    </p>
+                                  );
+                                }
+                              }
+                            })}
+                        </div>
+                        <div className="col-6 mb-3">
+                          <h6>Date Created</h6>
+                          {authContext.user &&
+                            Object.keys(authContext.user).map((userKey) => {
+                              if (!userKey.includes("_id")) {
+                                if (userKey === "last_login") {
+                                  return (
+                                    <p className="text-mute" key={userKey.id}>
+                                      {`${authContext.user[userKey]}`}
+                                    </p>
+                                  );
+                                }
+                              }
+                            })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Layout>
     </>

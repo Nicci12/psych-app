@@ -8,8 +8,8 @@ const Navbar = () => {
   const authContext = useAuthContext();
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
           {authContext.user === "admin" && (
             <Link href={`/admin`}>
               <a>Admin Dashboard</a>
@@ -45,7 +45,7 @@ const Navbar = () => {
                   </a>
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 {!authContext.user && (
                   <button
                     className={navbarStyles.navbarButton}
@@ -73,7 +73,7 @@ const Navbar = () => {
                 <a className={navbarStyles.navbarLinkRight}>
                   <img
                     src={`${authContext.user.image}`}
-                    class="rounded-circle"
+                    className="rounded-circle"
                     height="25"
                     alt="Black and White Portrait of a Man"
                     loading="lazy"

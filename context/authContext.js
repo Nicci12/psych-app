@@ -25,9 +25,7 @@ const AuthContextProvider = ({ children }) => {
   }, [session]);
 
   useEffect(() => {
-    if (user) {
-      setIsUserLoading(false);
-    }
+    console.log(user);
   }, [user]);
   
   useEffect(() => {
