@@ -11,7 +11,7 @@ export default function MyProfile() {
   const authContext = useAuthContext();
   const [formData, setFormData] = useState();
   const [loadingEdit, setLoadingEdit] = useState(false);
-  
+
   const handleInputChange = (e, inputKey) => {
     setFormData({ ...formData, [inputKey]: e.target.value });
   };
@@ -44,12 +44,9 @@ export default function MyProfile() {
         },
       });
       setLoadingEdit(false);
+      authContext.user.details
     }
   };
-
-  useEffect(() => {
-    console.log(loadingEdit);
-  }, [loadingEdit]);
 
   return (
     <>
@@ -82,7 +79,7 @@ export default function MyProfile() {
             }
           />
 
-          {!loadingEdit && <span onClick={handleSaveClicked}>Save</span>}
+          {!loadingEdit && <button onClick={handleSaveClicked}>Save</button>}
           {loadingEdit && <Loader />}
         </div>
       </Layout>

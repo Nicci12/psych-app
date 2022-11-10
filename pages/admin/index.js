@@ -1,38 +1,45 @@
-import React, {useEffect} from 'react'
+import React, { useEffect, useState } from "react";
 import Layout from "../../components/layout";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import clientPromise from "../../lib/mongodb";
 import { useAuthContext } from "../../context/authContext";
 import { useRouter } from "next/router";
-
+import { getAllUsers } from "../../lib/mongo/users";
+import UserProfile from "../../components/UserProfile";
+import adminStyles from "../../styles/admin.module.css"
 
 export default function Admin() {
   const authContext = useAuthContext();
   const router = useRouter();
+  const [allUsers, setAllUsers] = useState();
 
   useEffect(() => {
-    console.log("all users");
-  }, []);
-  
-
-  useEffect(() => {
-    if (
-      (!authContext.user || authContext.user.role !== "admin") &&
-      !authContext.isUserLoading
-    ) {
-      router.push("/");
+    if (authContext.user && authContext.user.role === "admin") {
+      getAllUsers().then((response) => setAllUsers(response.users));
     }
   }, [authContext.user]);
-  
+
+  useEffect(() => {
+    console.log(allUsers);
+  }, [allUsers]);
 
   return (
     <Layout>
-        <h1>Hi</h1>
-        <h1>Admin</h1>
-      {authContext.user && authContext.user.role === "admin" && <div>{authContext.user.role}</div>}
+      <div className={adminStyles.admin}>
+        <h1>Admin Page</h1>
+        {authContext.user && authContext.user.role === "admin" && (
+          <div>
+            {allUsers &&
+              allUsers.map((userObj) => {
+                return <UserProfile user={userObj} component="admin" />;
+              })}
+          </div>
+        )}
+      </div>
     </Layout>
   );
+
 }
 
 export async function getServerSideProps(context) {
@@ -53,7 +60,7 @@ export async function getServerSideProps(context) {
     const user = await db
       .collection("users")
       .findOne({ email: session.user.email });
-      
+
     if (user && user.role !== "admin") {
       return {
         redirect: {
