@@ -75,7 +75,7 @@ const Navbar = () => {
                     src={`${authContext.user.image}`}
                     className="rounded-circle"
                     height="25"
-                    alt="Black and White Portrait of a Man"
+                    alt="Profile Picture"
                     loading="lazy"
                   />
                 </a>

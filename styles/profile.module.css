@@ -15,7 +15,6 @@
     flex-direction: column;
     margin-top: 50px;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .allUsers {
@@ -23,6 +22,26 @@
     flex-wrap: wrap;
   }
   
+.span{
+  display: flex;
+  justify-content: center;
+}
+
+
+.name{
+  padding-left: 10px;
+  text-transform:capitalize;
+}
+
+.btn{
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 19px;
+  font-size: larger;
+  background-color: rgba(205, 157, 250, 0.329);
+}
+
+
   .userWrapper {
     margin: 40px;
   }

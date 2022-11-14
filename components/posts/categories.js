@@ -6,8 +6,8 @@ export default function Categories({ categoriesObj }) {
       <div>
         {Object.keys(categoriesObj).map((category) => {
           return (
-            <div key={category}>
-              <h2 className={layoutStyles.category}>{category}</h2>
+            <div className={layoutStyles.titles} key={category}>
+              <h1 className={layoutStyles.category}>{category}</h1>
               <PostsList
                 category={category}
                 categoryPosts={categoriesObj[category]}

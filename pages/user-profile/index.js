@@ -52,7 +52,7 @@ export default function MyProfile() {
     <>
       <Layout>
         <div className={profileStyles.heading}>
-          <span>
+          <span className={profileStyles.span}>
             {" "}
             <h1>Welcome Back</h1>
             {authContext.user &&
@@ -60,7 +60,7 @@ export default function MyProfile() {
                 if (!userKey.includes("_id")) {
                   if (userKey === "name") {
                     return (
-                      <h1 key={userKey._id}>
+                      <h1 key={userKey._id} className={profileStyles.name}>
                         {`${authContext.user[userKey]}`}
                       </h1>
                     );
@@ -112,11 +112,11 @@ export default function MyProfile() {
                           : new Date().toJSON().split("T")[0]
                       }
                     />
-                    <button onClick={handleSaveClicked}>Save</button>
+                    <button className={profileStyles.btn}onClick={handleSaveClicked}>Save</button>
                   </div>
                   <div className="col-md-8">
                     <div className="card-body p-4">
-                      <h6>Information</h6>
+                      <h6>Profile Information</h6>
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1">
                         <div className="col-6 mb-3">
@@ -153,7 +153,7 @@ export default function MyProfile() {
                         <h6>Login In Details</h6>
                         <hr className="mt-0 mb-4" />
                         <div className="col-6 mb-3">
-                          <h6>Login In Details</h6>
+                          <h6>Profile Created</h6>
                           {authContext.user &&
                             Object.keys(authContext.user).map((userKey) => {
                               if (!userKey.includes("_id")) {
