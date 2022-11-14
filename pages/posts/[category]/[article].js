@@ -180,9 +180,9 @@ export default function Article({
         <div className={tocStyles.leftcolumn}>
           <div className={tocStyles.card}>
             <h2>{article.replace(/-/g, "-")}</h2>
-            <h5>
+            <h6>
               <Date dateString={postData.date} />
-            </h5>
+            </h6>
             <img className={tocStyles.fakeimg} src={postData.image} />
             <p>
               <div
