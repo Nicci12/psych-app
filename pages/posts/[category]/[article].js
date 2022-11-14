@@ -43,15 +43,15 @@ export async function getStaticProps({ params }) {
     }
   });
   // postData["contentHtml"] = updatedContentH2.join("");
-  postData["contentHtml"] = updatedContentH6.join("");
   const categories = getCategories();
   const categoriesObj = {};
   categories.forEach((fileName) => {
     const postsData = getSortedPostsData(fileName);
     categoriesObj[fileName] = postsData;
   });
+  postData["contentHtml"] = updatedContentH6.join("");
   postData["h2TitlesArray"] = h2TitlesArray;
-  postData["contentHtml"] = updatedContentH2.join("");
+  // postData["contentHtml"] = updatedContentH2.join("");
 
   return {
     props: {
@@ -109,7 +109,7 @@ export default function Article({
   }, []);
   return (
     <Layout>
-      <div className={tocStyles.articlesTocWrapper}>
+      {/* <div className={tocStyles.articlesTocWrapper}>
         {postData.h2TitlesArray.map((heading, index) => {
           if (heading === selectedHeader) {
             return (
@@ -125,7 +125,7 @@ export default function Article({
             );
           }
         })}
-      </div>
+      </div> */}
       {windowWidth < 750 && (
         <div className={tocStyles.hamburgerMenu} onClick={toggleBlogToc}>
           <div></div>
@@ -150,8 +150,7 @@ export default function Article({
                       return (
                         <h3
                           key={article.uid}
-                          className={tocStyles.articleTitle}
-                        >
+                          className={tocStyles.articleTitle}>
                           {article.title}
                         </h3>
                       );
@@ -159,8 +158,7 @@ export default function Article({
                       return (
                         <h3
                           key={article.uid}
-                          className={tocStyles.articleTitle}
-                        >
+                          className={tocStyles.articleTitle}>
                           <Link href={`/posts/${category}/${article.id}`}>
                             <a>{article.title}</a>
                           </Link>
@@ -174,7 +172,48 @@ export default function Article({
           })}
         </div>
       )}
-      <div>{article.replace(/-/g, " ")}</div>
+
+      <div className={tocStyles.header}>
+        <h2>Alternative Wellness</h2>
+      </div>
+      <div className={tocStyles.row}>
+        <div className={tocStyles.leftcolumn}>
+          <div className={tocStyles.card}>
+            <h2>{article.replace(/-/g, "-")}</h2>
+            <h5>
+              <Date dateString={postData.date} />
+            </h5>
+            <img className={tocStyles.fakeimg} src={postData.image} />
+            <p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: postData.contentHtml,
+                }}
+              />
+            </p>
+          </div>
+        </div>
+        <div className={tocStyles.rightcolumn}>
+          <div className={tocStyles.card}>
+            <h2>About</h2>
+            <div className={tocStyles.fakeimg}>Image</div>
+            <p>
+              Some text about me in culpa qui officia deserunt mollit anim..
+            </p>
+          </div>
+          <div className={tocStyles.card}>
+            <h3>Popular Post</h3>
+            <div className={tocStyles.fakeimg}>Image</div>
+            <div className={tocStyles.fakeimg}>Image</div>
+            <div className={tocStyles.fakeimg}>Image</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <h2>Footer</h2>
+      </div>
+      {/* <div className={tocStyles.header}>{article.replace(/-/g, "-")}</div>
       <div>{category}</div>
       <Date dateString={postData.date} />
       <img src={postData.image} />
@@ -182,7 +221,7 @@ export default function Article({
         dangerouslySetInnerHTML={{
           __html: postData.contentHtml,
         }}
-      />
+      /> */}
     </Layout>
   );
 }
@@ -195,47 +234,3 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
-
-
-// <div class="header">
-//   <h2>Blog Name</h2>
-// </div>
-
-// <div class="row">
-//   <div class="leftcolumn">
-//     <div class="card">
-//       <h2>TITLE HEADING</h2>
-//       <h5>Title description, Dec 7, 2017</h5>
-//       <div class="fakeimg" style="height:200px;">Image</div>
-//       <p>Some text..</p>
-//     </div>
-//     <div class="card">
-//       <h2>TITLE HEADING</h2>
-//       <h5>Title description, Sep 2, 2017</h5>
-//       <div class="fakeimg" style="height:200px;">Image</div>
-//       <p>Some text..</p>
-//     </div>
-//   </div>
-//   <div class="rightcolumn">
-//     <div class="card">
-//       <h2>About Me</h2>
-//       <div class="fakeimg" style="height:100px;">Image</div>
-//       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-//     </div>
-//     <div class="card">
-//       <h3>Popular Post</h3>
-//       <div class="fakeimg">Image</div><br>
-//       <div class="fakeimg">Image</div><br>
-//       <div class="fakeimg">Image</div>
-//     </div>
-//     <div class="card">
-//       <h3>Follow Me</h3>
-//       <p>Some text..</p>
-//     </div>
-//   </div>
-// </div>
-
-// <div class="footer">
-//   <h2>Footer</h2>
-// </div>
