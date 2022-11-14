@@ -1,5 +1,5 @@
 ---
-title: "What is alternative medicine"
+title: "What is Alternative Medicine?"
 image: "https://pancan.org/wp-content/uploads/2018/10/herbal-medicine-733x450.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
@@ -16,7 +16,7 @@ uid: "1"
 
 ###### https://www.youtube.com/embed/iOULvQUAjfM
 
-## What is Alternative Medicine?
+##### What is Alternative Medicine?
 Alternative medicine is a term that describes medical treatments that are used instead of traditional (mainstream) therapies. Some people also refer to it as “integrative,” or “complementary” medicine.
 More than half of adults in the United States say they use some form of alternative medicine. But exactly 
 what types of therapies are considered alternative?

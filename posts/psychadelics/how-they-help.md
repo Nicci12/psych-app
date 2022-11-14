@@ -1,6 +1,6 @@
 ---
-title: "psychadelics-and-mental-health"
-image: "https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=800"
+title: "Psyachadelics and Mental Health"
+image: "https://post.psychcentral.com/wp-content/uploads/sites/4/2021/12/psychedelic-therapy-PC-1200x628.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "5"

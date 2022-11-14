@@ -1,6 +1,6 @@
 ---
-title: "How hypnosis works"
-image: "https://thumbs.dreamstime.com/b/hypnosis-practice-concept-vector-illustration-hypnotherapy-session-subconscious-research-psychiatrist-assistance-altered-state-191141814.jpg"
+title: "How Hypnosis Works"
+image: "https://img.freepik.com/free-vector/woman-conducting-hypnosis-session-flat-vector-illustration-girl-session-with-psychotherapist-psychologist-swinging-pendulum-putting-patient-state-altered-mind-mental-disorder-concept_74855-23245.jpg?w=2000"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "4"

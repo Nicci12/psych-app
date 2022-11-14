@@ -1,15 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap");
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 4rem;
- font-family: 'Delius';
- font-size: xx-large
+  font-family: "Delius";
+  font-size: xx-large;
 }
 
-.category{
+.imgDiv {
+  display: flex;
+  height: 80%;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.category {
   margin-top: 1rem;
   color: black;
   margin-bottom: 1rem;
@@ -18,12 +26,12 @@
   text-decoration: underline;
 }
 
-.posts{
+.posts {
   display: flex;
   padding: 30px 30px 0px 30px;
 }
 
-.heading{
+.heading {
   text-align: center;
 }
 

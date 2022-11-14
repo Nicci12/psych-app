@@ -1,6 +1,6 @@
 ---
-title: "different-types-of-alternative-medicine"
-image: "https://www.evergladesuniversity.edu/wp-content/uploads/2017/07/alternative-medicine-everglades-u-770x400.jpg"
+title: "Different Types of Alternative Medicine"
+image: "https://www.news-medical.net/image.axd?picture=2021%2F1%2Fshutterstock_139839763.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "2"

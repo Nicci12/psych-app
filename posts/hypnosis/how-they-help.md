@@ -1,6 +1,6 @@
 ---
 title: "Hypnosis and Mental Health"
-image: "https://static.vecteezy.com/system/resources/previews/008/387/285/non_2x/isometric-hypnosis-therapy-illustration-vector.jpg"
+image: "https://img.freepik.com/free-vector/trance-effect-woman-during-session-hypnosis-therapy-isolated-flat-vector-illustration-abstract-psychedelic-whirlpool-chatelaine-watch-altered-state-mind-unconsciousness-concept_74855-10179.jpg?w=2000"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 uid: "3"
