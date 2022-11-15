@@ -3,6 +3,7 @@ title: "Different Types of Alternative Medicine"
 image: "https://www.news-medical.net/image.axd?picture=2021%2F1%2Fshutterstock_139839763.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
+article: "This Article explores the different ways in which alternative medicine can help improve mental health"
 uid: "2"
 ---
 

@@ -3,8 +3,8 @@ title: "Psyachadelics and Mental Health"
 image: "https://post.psychcentral.com/wp-content/uploads/sites/4/2021/12/psychedelic-therapy-PC-1200x628.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
+article: "This Article explores the different ways in which psychadelic assisted therapy can help improve mental health"
 uid: "5"
-article: "resources"
 ---
 
 ## Psychadelics?

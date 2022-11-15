@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { getCategories, getSortedPostsData } from "../../lib/posts";
 import Layout from "../../components/layout";
 import Categories from "../../components/posts/categories";

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import navbarStyles from "../../styles/navbar.module.css";
 import { signIn, signOut } from "next-auth/react";
-import React, { useEffect } from "react";
+import React from "react";
 import { useAuthContext } from "../../context/authContext";
 
 const Navbar = () => {

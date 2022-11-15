@@ -3,6 +3,7 @@ title: "Different Types of Psychadelic Assisted Treatment"
 image: "https://npr.brightspotcdn.com/dims4/default/29672d8/2147483647/strip/true/crop/3000x1575+0+213/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fkwmu%2Ffiles%2F202002%2F021820_DK_illustration_psychedelics_2.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
+article: "This Article explores the different ways in which psychadelic assisted therapy can help improve mental health"
 uid: "6"
 ---
 

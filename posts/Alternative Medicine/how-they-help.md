@@ -3,6 +3,7 @@ title: "What is Alternative Medicine?"
 image: "https://pancan.org/wp-content/uploads/2018/10/herbal-medicine-733x450.jpg"
 role: "admin,subscriber,guest"
 date: "2020-01-01"
+article: "This Article explores the different ways in which alternative medicine can help improve mental health"
 uid: "1"
 ---
 
