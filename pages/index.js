@@ -3,6 +3,7 @@ import utilStyles from "../styles/utils.module.css";
 import { getCategories, getSortedPostsData } from "../lib/posts";
 import React, {useState } from "react";
 import Navbar from "../components/Navigation/Navbar";
+import { getTwitterUserByHandle } from "../lib/twitter";
 
 export const name = "Welcome to Alternative Wellness";
 export const siteTitle = "A mental health blog";
@@ -60,3 +61,4 @@ export default function Home() {
     </>
   );
 }
+
