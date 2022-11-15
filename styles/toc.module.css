@@ -38,7 +38,7 @@ Z-Index */
 
 /* Fake image */
 .fakeimg {
-  background-color: #aaa;
+  /* background-color: #aaa; */
   width: 100%;
   padding: 20px;
 }

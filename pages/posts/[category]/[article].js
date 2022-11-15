@@ -196,7 +196,7 @@ export default function Article({
         <div className={tocStyles.rightcolumn}>
           <div className={tocStyles.card}>
             <h2>About</h2>
-            <div className={tocStyles.fakeimg}>Image</div>
+            <img className={tocStyles.fakeimg} />
             <p>
               Some text about me in culpa qui officia deserunt mollit anim..
             </p>
