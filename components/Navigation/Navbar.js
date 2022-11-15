@@ -39,11 +39,22 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
+              {!authContext.user && (
                 <Link href="/posts">
-                  <a className="nav-link active" href="/posts">
-                    Posts
+                  <a className="d-none" href="/posts">
+                    PostsME
                   </a>
                 </Link>
+              )}
+              </li>
+              <li className="nav-item">
+              {authContext.user && (
+                <Link href="/posts">
+                <a className="nav-link active" href="/posts">
+                  Posts
+                </a>
+              </Link>
+                )}
               </li>
               <li className="nav-item">
                 {!authContext.user && (
