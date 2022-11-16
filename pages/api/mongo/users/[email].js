@@ -117,7 +117,7 @@ let mongo = require("mongodb");
 
 export default async (req, res) => {
   const session = await unstable_getServerSession(req, res, authOptions);
-  const email = req.query.email;
+  const email = req.params.email;
   if (session) {
     const client = await clientPromise;
     const db = client.db();
