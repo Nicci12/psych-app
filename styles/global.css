@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   padding: 0;
@@ -7,10 +9,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 a, h5{

@@ -155,7 +155,7 @@ export default async (req, res) => {
             _id: userDB.insertedId,
           };
         }
-        res.status(200).json({ ...user});
+        res.send({ ...user});
         break;
         case "PUT":
         const parsedReq = JSON.parse(req.body);
@@ -166,7 +166,7 @@ export default async (req, res) => {
 
         const updates = {};
         Object.keys(parsedReq).forEach((item) => {
-          if (item !== "user_id" && item !== "role") {
+          if (item !== "_id" && item !== "role") {
             updates[item] = parsedReq[item];
           }
         });
@@ -186,14 +186,14 @@ export default async (req, res) => {
           .collection("users")
           .updateOne(existingUser, updateDocument);
 
-        res.json({ message: responseDB.acknowledged });
+        res.send({ message: responseDB.acknowledged });
         break;
       default:
         res.setHeader("Allow", ["GET", "PUT"]);
         res.status(405).end(`Method ${method} Not Allowed`);
     }
   } else {
-    res.json({
+    res.send({
       error: "You must be sign in to view the protected content on this page.",
     });
   }
