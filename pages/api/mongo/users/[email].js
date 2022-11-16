@@ -1,6 +1,7 @@
 import clientPromise from "../../../../lib/mongodb";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../auth/[...nextauth]";
+let mongo = require("mongodb");
 
 export default async (req, res) => {
   const session = await unstable_getServerSession(req, res, authOptions);
@@ -24,9 +25,7 @@ export default async (req, res) => {
               image: session.user.image,
             },
           };
-          await db
-            .collection("users")
-            .updateOne(existingUser, updateDocument);
+          await db.collection("users").updateOne(existingUser, updateDocument);
         } else {
           const newUser = {
             email: email,
@@ -41,10 +40,17 @@ export default async (req, res) => {
             ...newUser,
             _id: userDB.insertedId,
           };
+          try {
+            addToMailChimp(email);
+            sendEmail(email);
+          } catch {
+            console.log("error");
+          }
         }
-        res.status(200).json({ user });
+        res.status(200).json({ ...user });
         break;
-        case "PUT":
+
+      case "PUT":
         const parsedReq = JSON.parse(req.body);
         const userObjId = new mongo.ObjectID(parsedReq.user_id);
         const existingUser = {
@@ -53,7 +59,7 @@ export default async (req, res) => {
 
         const updates = {};
         Object.keys(parsedReq).forEach((item) => {
-          if (item !== "_id" && item !== "role") {
+          if (item !== "user_id" && item !== "role") {
             updates[item] = parsedReq[item];
           }
         });
@@ -73,20 +79,18 @@ export default async (req, res) => {
           .collection("users")
           .updateOne(existingUser, updateDocument);
 
-        res.send({ message: responseDB.acknowledged });
+        res.json({ message: responseDB.acknowledged });
         break;
       default:
         res.setHeader("Allow", ["GET", "PUT"]);
         res.status(405).end(`Method ${method} Not Allowed`);
     }
   } else {
-    res.send({
+    res.json({
       error: "You must be sign in to view the protected content on this page.",
     });
   }
-
-  }
-let mongo = require("mongodb");
+};
 
 // export default async (req, res) => {
 //   const session = await unstable_getServerSession(req, res, authOptions);
@@ -194,4 +198,3 @@ let mongo = require("mongodb");
 //     });
 //   }
 // };
-
