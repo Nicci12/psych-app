@@ -25,8 +25,7 @@ const Navbar = () => {
             data-mdb-target="#navbarText"
             aria-controls="navbarText"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <i className="fas fa-bars"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
@@ -39,43 +38,47 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-              {!authContext.user && (
-                <Link href="/posts">
-                  <a className="d-none" href="/posts">
-                    PostsME
-                  </a>
-                </Link>
-              )}
+                {!authContext.user && (
+                  <Link href="/posts">
+                    <a className="d-none" href="/posts">
+                      Posts-disabled
+                    </a>
+                  </Link>
+                )}
               </li>
               <li className="nav-item">
-              {authContext.user && (
-                <Link href="/posts">
-                <a className="nav-link active" href="/posts">
-                  Posts
-                </a>
-              </Link>
+                {authContext.user && (
+                  <Link href="/posts">
+                    <a className="nav-link active" href="/posts">
+                      Posts
+                    </a>
+                  </Link>
                 )}
               </li>
               <li className="nav-item">
                 {!authContext.user && (
-                  <button
-                    className={navbarStyles.navbarButton}
-                    onClick={() => {
-                      signIn();
-                    }}
-                  >
-                    Sign In
-                  </button>
+                  <Link href="/">
+                    <a
+                      className="nav-link active"
+                      onClick={() => {
+                        signIn();
+                      }}>
+                      Sign In
+                    </a>
+                  </Link>
                 )}
+              </li>
+              <li className="nav-item">
                 {authContext.user && (
-                  <button
-                    className={navbarStyles.navbarButton}
-                    onClick={() => {
-                      signOut();
-                    }}
-                  >
-                    Sign Out
-                  </button>
+                  <Link href="/">
+                    <a
+                      className="nav-link active"
+                      onClick={() => {
+                        signOut();
+                      }}>
+                      Sign Out
+                    </a>
+                  </Link>
                 )}
               </li>
             </ul>

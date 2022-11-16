@@ -1,9 +1,9 @@
 ---
-title: "How Hypnosis Works"
-image: "https://img.freepik.com/free-vector/woman-conducting-hypnosis-session-flat-vector-illustration-girl-session-with-psychotherapist-psychologist-swinging-pendulum-putting-patient-state-altered-mind-mental-disorder-concept_74855-23245.jpg?w=2000"
+title: "What is Ketamine?"
+image: "https://images.newscientist.com/wp-content/uploads/2017/11/21103922/psychedelicsmain.jpg"
 role: "admin,subscriber,guest"
-date: "2020-01-01"
-article: "This Article explores the different ways in which hypnosis can help improve mental health"
+date: "2019-01-01"
+article: "what-is-ketamine"
 uid: "4"
 ---
 
