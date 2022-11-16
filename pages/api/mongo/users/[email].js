@@ -5,24 +5,20 @@ let mongo = require("mongodb");
 
 export default async (req, res) => {
   const session = await unstable_getServerSession(req, res, authOptions);
-  const method = req.method;
-  const email = req.params.email;
-  
+  const email = req.query.email;
   if (session) {
     const client = await clientPromise;
     const db = client.db();
-   
+    const method = req.method;
     switch (method) {
-      case 'GET':
-        // Get data from your database
-        console.log(email)
+      case "GET":
         let user = await db.collection("users").findOne({ email: email });
-
         if (user) {
           const existingUser = {
             email: email,
           };
-          const updateDocument = {
+
+          let updateDocument = {
             $set: {
               last_login: new Date(),
               name: session.user.name,
@@ -44,24 +40,58 @@ export default async (req, res) => {
             ...newUser,
             _id: userDB.insertedId,
           };
+          try {
+            addToMailChimp(email);
+            sendEmail(email);
+          } catch {
+            console.log("error");
+          }
         }
-        res.status(200).json({ user })
-        break
-      case 'PUT':
-        // Update or create data in your database
-        res.status(200).json({})
-        break
+        res.status(200).json({ ...user });
+        break;
+
+      case "PUT":
+        const parsedReq = JSON.parse(req.body);
+        const userObjId = new mongo.ObjectID(parsedReq.user_id);
+        const existingUser = {
+          _id: userObjId,
+        };
+
+        const updates = {};
+        Object.keys(parsedReq).forEach((item) => {
+          if (item !== "user_id" && item !== "role") {
+            updates[item] = parsedReq[item];
+          }
+        });
+
+        let updateDocument = {
+          $set: { details: { ...updates } },
+        };
+
+        if (parsedReq.role) {
+          updateDocument = {
+            ...updateDocument,
+            $set: { role: parsedReq.role },
+          };
+        }
+
+        const responseDB = await db
+          .collection("users")
+          .updateOne(existingUser, updateDocument);
+
+        res.json({ message: responseDB.acknowledged });
+        break;
       default:
-        res.setHeader('Allow', ['GET', 'PUT'])
-        res.status(405).end(`Method ${method} Not Allowed`)
-      }
-    res.json({ user: "get user" });
+        res.setHeader("Allow", ["GET", "PUT"]);
+        res.status(405).end(`Method ${method} Not Allowed`);
+    }
   } else {
     res.json({
       error: "You must be sign in to view the protected content on this page.",
     });
   }
 };
+
 // export default async (req, res) => {
 //   const session = await unstable_getServerSession(req, res, authOptions);
 //   const method = req.method;
