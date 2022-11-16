@@ -155,7 +155,7 @@ export default async (req, res) => {
             _id: userDB.insertedId,
           };
         }
-        res.send({ ...user});
+        res.send(...user);
         break;
         case "PUT":
         const parsedReq = JSON.parse(req.body);
