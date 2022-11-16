@@ -4,6 +4,7 @@ import clientPromise from "../../../../lib/mongodb";
 
 export default async (req, res) => {
   const session = await unstable_getServerSession(req, res, authOptions);
+  const email = req.query.email;
   if (session) {
     const method = req.method;
     const client = await clientPromise;

@@ -1,58 +1,92 @@
 import clientPromise from "../../../../lib/mongodb";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../auth/[...nextauth]";
+
+export default async (req, res) => {
+  const session = await unstable_getServerSession(req, res, authOptions);
+  const email = req.query.email;
+  if (session) {
+    const client = await clientPromise;
+    const db = client.db();
+    const method = req.method;
+    switch (method) {
+      case "GET":
+        let user = await db.collection("users").findOne({ email: email });
+        if (user) {
+          const existingUser = {
+            email: email,
+          };
+
+          let updateDocument = {
+            $set: {
+              last_login: new Date(),
+              name: session.user.name,
+              image: session.user.image,
+            },
+          };
+          await db
+            .collection("users")
+            .updateOne(existingUser, updateDocument);
+        } else {
+          const newUser = {
+            email: email,
+            name: session.user.name,
+            image: session.user.image,
+            role: "guest",
+            date_created: new Date(),
+            last_login: new Date(),
+          };
+          const userDB = await db.collection("users").insertOne(newUser);
+          user = {
+            ...newUser,
+            _id: userDB.insertedId,
+          };
+        }
+        res.status(200).json({ user });
+        break;
+        case "PUT":
+        const parsedReq = JSON.parse(req.body);
+        const userObjId = new mongo.ObjectID(parsedReq.user_id);
+        const existingUser = {
+          _id: userObjId,
+        };
+
+        const updates = {};
+        Object.keys(parsedReq).forEach((item) => {
+          if (item !== "_id" && item !== "role") {
+            updates[item] = parsedReq[item];
+          }
+        });
+
+        let updateDocument = {
+          $set: { details: { ...updates } },
+        };
+
+        if (parsedReq.role) {
+          updateDocument = {
+            ...updateDocument,
+            $set: { role: parsedReq.role },
+          };
+        }
+
+        const responseDB = await db
+          .collection("users")
+          .updateOne(existingUser, updateDocument);
+
+        res.send({ message: responseDB.acknowledged });
+        break;
+      default:
+        res.setHeader("Allow", ["GET", "PUT"]);
+        res.status(405).end(`Method ${method} Not Allowed`);
+    }
+  } else {
+    res.send({
+      error: "You must be sign in to view the protected content on this page.",
+    });
+  }
+
+  }
 let mongo = require("mongodb");
-
-
-
-// export default async (req, res) => {
-//   const session = await unstable_getServerSession(req, res, authOptions);
-//   const method = req.method;
-//   const email = req.query.email;
-
-//   if (session) {
-//     const client = await clientPromise;
-//     const db = client.db();
-
-//     switch (method) {
-//       case "GET":
-//         let user = await db.collection("users").findOne({ email: email });
-//         res.status(200).json({ user });
-//         break;
-//       case "PUT":
-//         const parsedReq = JSON.parse(req.body);
-//         const userObjId = new mongo.ObjectID(parsedReq.user_id);
-//         const existingUser = {
-//           _id: userObjId,
-//         };
-//         const updates = {};
-//         Object.keys(parsedReq).forEach((item) => {
-//           if (item !== "user_id" && item !== "role") {
-//             updates[item] = parsedReq[item];
-//           }
-//         });
-
-//         const updateDocument = {
-//           $set: { details: { ...updates } },
-//         };
-
-//         const responseDB = db
-//           .collection("users")
-//           .updateOne(existingUser, updateDocument);
-//         console.log(responseDB);
-
-//         res.json({ message: responseDB.acknowledged });
-//         break;
-//       default:
-//         res.setHeader("Allow", ["GET", "PUT"]);
-//         res.status(405).end(`Method ${method} Not Allowed`);
-//     }
-//   } else {
-//     res.json({
-//       error: "You must be sign in to view the protected content on this page.",
-//     });
-//   }
-// };
 
 // export default async (req, res) => {
 //   const session = await unstable_getServerSession(req, res, authOptions);
@@ -112,90 +146,52 @@ let mongo = require("mongodb");
 //   }
 // };
 
+// export default async (req, res) => {
+//   const session = await unstable_getServerSession(req, res, authOptions);
+//   const method = req.method;
+//   const email = req.query.email;
 
+//   if (session) {
+//     const client = await clientPromise;
+//     const db = client.db();
 
+//     switch (method) {
+//       case "GET":
+//         let user = await db.collection("users").findOne({ email: email });
+//         res.status(200).json({ user });
+//         break;
+//       case "PUT":
+//         const parsedReq = JSON.parse(req.body);
+//         const userObjId = new mongo.ObjectID(parsedReq.user_id);
+//         const existingUser = {
+//           _id: userObjId,
+//         };
+//         const updates = {};
+//         Object.keys(parsedReq).forEach((item) => {
+//           if (item !== "user_id" && item !== "role") {
+//             updates[item] = parsedReq[item];
+//           }
+//         });
 
-export default async (req, res) => {
-  const session = await unstable_getServerSession(req, res, authOptions);
-  const email = req.params.email;
-  if (session) {
-    const client = await clientPromise;
-    const db = client.db();
-    const method = req.method;
-    switch (method) {
-      case "GET":
-        let user = await db.collection("users").findOne({ email: email });
-        if (user) {
-          const existingUser = {
-            email: email,
-          };
+//         const updateDocument = {
+//           $set: { details: { ...updates } },
+//         };
 
-          let updateDocument = {
-            $set: {
-              last_login: new Date(),
-              name: session.user.name,
-              image: session.user.image,
-            },
-          };
-          await db
-            .collection("users")
-            .updateOne(existingUser, updateDocument);
-        } else {
-          const newUser = {
-            email: email,
-            name: session.user.name,
-            image: session.user.image,
-            role: "guest",
-            date_created: new Date(),
-            last_login: new Date(),
-          };
-          const userDB = await db.collection("users").insertOne(newUser);
-          user = {
-            ...newUser,
-            _id: userDB.insertedId,
-          };
-        }
-        res.send(...user);
-        break;
-        case "PUT":
-        const parsedReq = JSON.parse(req.body);
-        const userObjId = new mongo.ObjectID(parsedReq.user_id);
-        const existingUser = {
-          _id: userObjId,
-        };
+//         const responseDB = db
+//           .collection("users")
+//           .updateOne(existingUser, updateDocument);
+//         console.log(responseDB);
 
-        const updates = {};
-        Object.keys(parsedReq).forEach((item) => {
-          if (item !== "_id" && item !== "role") {
-            updates[item] = parsedReq[item];
-          }
-        });
+//         res.json({ message: responseDB.acknowledged });
+//         break;
+//       default:
+//         res.setHeader("Allow", ["GET", "PUT"]);
+//         res.status(405).end(`Method ${method} Not Allowed`);
+//     }
+//   } else {
+//     res.json({
+//       error: "You must be sign in to view the protected content on this page.",
+//     });
+//   }
+// };
 
-        let updateDocument = {
-          $set: { details: { ...updates } },
-        };
-
-        if (parsedReq.role) {
-          updateDocument = {
-            ...updateDocument,
-            $set: { role: parsedReq.role },
-          };
-        }
-
-        const responseDB = await db
-          .collection("users")
-          .updateOne(existingUser, updateDocument);
-
-        res.send({ message: responseDB.acknowledged });
-        break;
-      default:
-        res.setHeader("Allow", ["GET", "PUT"]);
-        res.status(405).end(`Method ${method} Not Allowed`);
-    }
-  } else {
-    res.send({
-      error: "You must be sign in to view the protected content on this page.",
-    });
-  }
-
-  }
