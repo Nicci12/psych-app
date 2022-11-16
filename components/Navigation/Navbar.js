@@ -74,7 +74,7 @@ const Navbar = () => {
                     <a
                       className="nav-link active"
                       onClick={() => {
-                        signOut();
+                        signOut( {callbackUrl: `${window.location.origin}/`});
                       }}>
                       Sign Out
                     </a>
