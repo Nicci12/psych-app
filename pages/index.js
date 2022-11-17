@@ -13,7 +13,7 @@ export const newDate= [
  new Date().toLocaleDateString(),
  ];
 
-export async function getStaticProps({revalidate}) {
+export async function getStaticProps() {
   const categories = getCategories();
   const categoriesObj = {};
   categories.forEach((fileName) => {

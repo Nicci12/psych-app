@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.category, params.article);
+
   const h2TitlesArray = [];
   const contentArrayH2 = postData.contentHtml.split("<h2>").slice(1);
   const updatedContentH2 = contentArrayH2.map((itemH2) => {
@@ -19,14 +20,16 @@ export async function getStaticProps({ params }) {
       const textH2 = itemH2.split("</h2>")[0];
       const itemsAfterH2 = itemH2.split("</h2>")[1];
       h2TitlesArray.push(textH2);
-      const id = textH2.replace(/-/g, " ");
+      const id = textH2.replace(/ /g, "-");
       const newItem = `<a href="#${id}"><h2 id="${id}">${textH2}</h2></a>${itemsAfterH2}`;
       return newItem;
     } else {
       return itemH2;
-      
     }
   });
+  postData["h2TitlesArray"] = h2TitlesArray;
+  postData["contentHtml"] = updatedContentH2.join("");
+
   const contentArrayH6 = postData.contentHtml.split("<h6>");
   const updatedContentH6 = contentArrayH6.map((itemH6) => {
     if (itemH6.includes("</h6>")) {
@@ -49,10 +52,8 @@ export async function getStaticProps({ params }) {
     const postsData = getSortedPostsData(fileName);
     categoriesObj[fileName] = postsData;
   });
-  postData["contentHtml"] = updatedContentH2.join("");
-  postData["h2TitlesArray"] = h2TitlesArray;
   postData["contentHtml"] = updatedContentH6.join("");
-  
+
   return {
     props: {
       category: params.category,
@@ -102,6 +103,11 @@ export default function Article({ article, postData, categoriesObj }) {
   useEffect(() => {
     setSelectedHeader(router.asPath.split("/posts")[1]);
   }, []);
+
+  useEffect(() => {
+    console.log(selectedHeader);
+  }, [selectedHeader]);
+
   return (
     <Layout>
       {windowWidth < 750 && (
@@ -119,7 +125,7 @@ export default function Article({ article, postData, categoriesObj }) {
               <div key={category} className={tocStyles.categoryWrapper}>
                 <h3 className={tocStyles.categoryTitle}>
                   <Link href={`/posts/${category}`}>
-                    <a>{category.replace(/-/g, " ")}</a>
+                    <a>{category}</a>
                   </Link>
                 </h3>
                 <div className={tocStyles.articlesWrapper}>
@@ -129,7 +135,7 @@ export default function Article({ article, postData, categoriesObj }) {
                         <h3
                           key={article.uid}
                           className={tocStyles.articleTitle}>
-                         <a>{article.title}</a> 
+                          {article.title}
                         </h3>
                       );
                     } else {
@@ -171,21 +177,28 @@ export default function Article({ article, postData, categoriesObj }) {
           <div className={tocStyles.card}>
             <div className={tocStyles.tablecard}>
               <h4 className={tocStyles.content}>Table Of Contents</h4>
-              {postData.h2TitlesArray.map((heading, index) => {
-                if (heading === selectedHeader) {
-                  return (
-                    <h6 className={tocStyles.tocTitle} key={heading + index}>
-                      {heading}
-                    </h6>
-                  );
-                } else {
-                  return (
-                    <h6 className={tocStyles.tocTitle} key={heading + index}>
-                      <a href={`#${heading.replace(/-/g, " ")}`}>{heading}</a>
-                    </h6>
-                  );
-                }
-              })}
+                {postData.h2TitlesArray.map((heading, index) => {
+                  if (heading.replace(/ /g, "-") === selectedHeader) {
+                    return (
+                      <h3
+                        className={tocStyles.headingTitle}
+                        key={heading + index}>
+                        {heading}
+                      </h3>
+                    );
+                  } else {
+                    return (
+                      <h3
+                        className={tocStyles.headingTitle}
+                        onClick={() => {
+                          setSelectedHeader(heading.replace(/ /g, "-"));
+                        }}
+                        key={heading + index}>
+                        <a href={`#${heading.replace(/ /g, "-")}`}>{heading}</a>
+                      </h3>
+                    );
+                  }
+                })}
             </div>
           </div>
           <div className={tocStyles.card}>
@@ -197,9 +210,6 @@ export default function Article({ article, postData, categoriesObj }) {
         </div>
       </div>
 
-      <div class="footer">
-        <h2>Footer</h2>
-      </div>
       {/* <div className={tocStyles.header}>{article.replace(/-/g, "-")}</div>
       <div>{category}</div>
       <Date dateString={postData.date} />
