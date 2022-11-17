@@ -1,11 +1,12 @@
 import clientPromise from "../../../../lib/mongodb";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../auth/[...nextauth]";
+let mongo = require("mongodb");
 
 export default async (req, res) => {
   const session = await unstable_getServerSession(req, res, authOptions);
   const method = req.method;
-  const email = req.query.email;
+  const email = req.params.email;
   
   if (session) {
     const client = await clientPromise;
