@@ -5,6 +5,7 @@ import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import profileStyles from "../../styles/profile.module.css";
 import { updateUserProfile } from "../../lib/mongo/users";
+import { router } from "next/router";
 import Loader from "../../components/utility/Loader";
 
 export default function MyProfile() {
