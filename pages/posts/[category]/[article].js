@@ -164,13 +164,13 @@ export default function Article({ article, postData, categoriesObj }) {
               <Date dateString={postData.date} />
             </h6>
             <img className={tocStyles.fakeimg} src={postData.image} />
-            <p>
+            <span><p>
               <div
                 dangerouslySetInnerHTML={{
                   __html: postData.contentHtml,
                 }}
               />
-            </p>
+            </p></span>
           </div>
         </div>
         <div className={tocStyles.rightcolumn}>

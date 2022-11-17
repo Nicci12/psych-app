@@ -9,7 +9,7 @@ export default function PostsList({ category, categoryPosts }) {
           <Link href={`/posts/${category}/${post.id}`} key={post.title}>
             <div className="bg-image hover-zoom d-flex text-align-center">
               <a>
-                <img classname={layoutStyles.images} src={post.image} />
+                <img className={layoutStyles.images} src={post.image} />
                 <h5>{post.title}</h5>
               </a>
             </div>
