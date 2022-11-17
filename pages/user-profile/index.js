@@ -6,7 +6,7 @@ import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import profileStyles from "../../styles/profile.module.css";
 import { updateUserProfile } from "../../lib/mongo/users";
 import { router } from "next/router";
-import Loader from "../../components/utility/Loader";
+
 
 export default function MyProfile() {
   const authContext = useAuthContext();
@@ -113,7 +113,11 @@ export default function MyProfile() {
                           : new Date().toJSON().split("T")[0]
                       }
                     />
-                    <button className={profileStyles.btn}onClick={handleSaveClicked}>Save</button>
+                    <button
+                      className={profileStyles.btn}
+                      onClick={handleSaveClicked}>
+                      Save
+                    </button>
                   </div>
                   <div className="col-md-8">
                     <div className="card-body p-4">
@@ -195,8 +199,6 @@ export default function MyProfile() {
     </>
   );
 }
-
-
 
 export async function getServerSideProps(context) {
   const { req, res } = context;

@@ -11,41 +11,12 @@ export default async (req, res) => {
   if (session) {
     const client = await clientPromise;
     const db = client.db();
-   
     switch (method) {
       case 'GET':
         // Get data from your database
         console.log(email)
         let user = await db.collection("users").findOne({ email: email });
-
-        if (user) {
-          const existingUser = {
-            email: email,
-          };
-          const updateDocument = {
-            $set: {
-              last_login: new Date(),
-              name: session.user.name,
-              image: session.user.image,
-            },
-          };
-          await db.collection("users").updateOne(existingUser, updateDocument);
-        } else {
-          const newUser = {
-            email: email,
-            name: session.user.name,
-            image: session.user.image,
-            role: "guest",
-            date_created: new Date(),
-            last_login: new Date(),
-          };
-          const userDB = await db.collection("users").insertOne(newUser);
-          user = {
-            ...newUser,
-            _id: userDB.insertedId,
-          };
-        }
-        res.status(200).json({ user })
+        res.status(200).json({user})
         break
         case 'PUT':
           const parsedReq = JSON.parse(req.body);
