@@ -141,7 +141,7 @@ export default function MyProfile() {
                           {authContext.user &&
                             Object.keys(authContext.user).map((userKey) => {
                               if (!userKey.includes("_id")) {
-                                if (userKey === "last_login") {
+                                if (userKey === "email") {
                                   return (
                                     <p className="text-mute" key={userKey._id}>
                                       {`${authContext.user[userKey]}`}
