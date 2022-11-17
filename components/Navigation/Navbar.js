@@ -57,7 +57,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 {!authContext.user && (
-                  <Link href="/">
+                  <span>
                     <a
                       className="nav-link active"
                       onClick={() => {
@@ -65,12 +65,12 @@ const Navbar = () => {
                       }}>
                       Sign In
                     </a>
-                  </Link>
+                    </span>
                 )}
               </li>
               <li className="nav-item">
                 {authContext.user && (
-                  <Link href="/">
+                  <div>
                     <a
                       className="nav-link active"
                       onClick={() => {
@@ -78,7 +78,7 @@ const Navbar = () => {
                       }}>
                       Sign Out
                     </a>
-                  </Link>
+                  </div>
                 )}
               </li>
             </ul>
