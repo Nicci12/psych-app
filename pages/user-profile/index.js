@@ -196,6 +196,8 @@ export default function MyProfile() {
   );
 }
 
+
+
 export async function getServerSideProps(context) {
   const { req, res } = context;
   try {
@@ -210,7 +212,7 @@ export async function getServerSideProps(context) {
     }
     return { props: {} };
   } catch (e) {
-    console.error("error");
+    console.error("uh oh");
     return;
   }
 }
