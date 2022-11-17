@@ -125,7 +125,7 @@ export default function Article({ article, postData, categoriesObj }) {
               <div key={category} className={tocStyles.categoryWrapper}>
                 <h3 className={tocStyles.categoryTitle}>
                   <Link href={`/posts/${category}`}>
-                    <a>{category}</a>
+                    <a>{category.replace(/-/g, " ")}</a>
                   </Link>
                 </h3>
                 <div className={tocStyles.articlesWrapper}>
