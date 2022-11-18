@@ -4,7 +4,7 @@ import { getCategories, getSortedPostsData } from "../lib/posts";
 import React, {useState, useEffect } from "react";
 import Navbar from "../components/Navigation/Navbar";
 import IconBreadcrumbs from "../components/Breadcrumbs/breadcrumbs";
-import { getTwitterUserByHandle, getUserTweets } from "../lib/twitter";
+import { getTwitterUserByHandle} from "../lib/twitter";
 
 export const name = "Welcome to Alternative Wellness";
 export const siteTitle = "A mental health blog";
