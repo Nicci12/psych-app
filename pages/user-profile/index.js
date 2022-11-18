@@ -155,7 +155,6 @@ export default function MyProfile() {
                             })}
                         </div>
                         <h6>Login In Details</h6>
-                        <hr className="mt-0 mb-4" />
                         <div className="col-6 mb-3">
                           <h6>Profile Created</h6>
                           {authContext.user &&
