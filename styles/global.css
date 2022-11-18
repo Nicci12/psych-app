@@ -100,3 +100,33 @@ hr{
  margin-left: 250px;
  margin-right:250px
 }
+
+svg{
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+svg.mushrooms{
+  color: rgb(255, 70, 70);
+ list-style-image: linear-gradient(20);
+}
+
+svg.cannabis{
+  color:#80ff00
+}
+
+svg.psych{
+  color:blueviolet
+}
+
+svg.medical{
+  color: red;
+}
+
+svg.pills{
+  color: rgb(85, 85, 221);
+}
+
+svg.medicines{
+  color:yellow
+}

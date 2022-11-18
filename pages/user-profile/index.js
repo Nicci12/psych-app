@@ -7,7 +7,6 @@ import profileStyles from "../../styles/profile.module.css";
 import { updateUserProfile } from "../../lib/mongo/users";
 import { router } from "next/router";
 
-
 export default function MyProfile() {
   const authContext = useAuthContext();
   const [formData, setFormData] = useState();

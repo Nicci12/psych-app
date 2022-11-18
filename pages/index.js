@@ -3,6 +3,7 @@ import utilStyles from "../styles/utils.module.css";
 import { getCategories, getSortedPostsData } from "../lib/posts";
 import React, {useState, useEffect } from "react";
 import Navbar from "../components/Navigation/Navbar";
+import IconBreadcrumbs from "../components/Breadcrumbs/breadcrumbs";
 import { getTwitterUserByHandle, getUserTweets } from "../lib/twitter";
 
 export const name = "Welcome to Alternative Wellness";
@@ -90,6 +91,9 @@ export default function Home({twitterEmbedsArray}) {
 
       <div className={utilStyles.searchDiv}>
       <input type="text" placeholder="Search Here" className={utilStyles.navbar} onChange={handleChange} />
+      </div>
+      <div className={utilStyles.breadcrumb}>
+        <IconBreadcrumbs />
       </div>
       <div className={utilStyles.container}>
         <Image
