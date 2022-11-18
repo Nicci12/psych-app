@@ -6,7 +6,7 @@ import Navbar from "../components/Navigation/Navbar";
 import IconBreadcrumbs from "../components/Breadcrumbs/breadcrumbs";
 import { getTwitterUserByHandle, getUserTweets } from "../lib/twitter";
 
-// export const name = "Welcome to Alternative Wellness";
+export const name = "Welcome to Alternative Wellness";
 export const siteTitle = "A mental health blog";
 export const content= "This website is aimed at helping individuals find alternative types of treatment for mental health";
 export const author = "Written and Created by Nicci Dimant"
