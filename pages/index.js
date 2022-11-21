@@ -1,18 +1,18 @@
 import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 import { getCategories, getSortedPostsData } from "../lib/posts";
-import React, {useState, useEffect } from "react";
-import Navbar from "../components/Navigation/Navbar";
+import React, { useState, useEffect } from "react";
 import IconBreadcrumbs from "../components/Breadcrumbs/breadcrumbs";
-import { getTwitterUserByHandle} from "../lib/twitter";
+import { getTwitterUserByHandle } from "../lib/twitter";
+import Searchbar from "../components/Navigation/Searchbar";
 
 export const name = "Welcome to Alternative Wellness";
 export const siteTitle = "A mental health blog";
-export const content= "This website is aimed at helping individuals find alternative types of treatment for mental health";
+export const content = "This website is aimed at helping individuals find alternative types of treatment for mental health";
 export const author = "Written and Created by Nicci Dimant"
-export const newDate= [
- new Date().toLocaleDateString(),
- ];
+export const newDate = [
+  new Date().toLocaleDateString(),
+];
 
 export async function getStaticProps() {
   const categories = getCategories();
@@ -31,23 +31,23 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({twitterEmbedsArray}) {
+export default function Home({ twitterEmbedsArray }) {
   const [search, setSearch] = useState("")
 
   useEffect(() => {
     console.log(twitterEmbedsArray);
   }, []);
-  
 
 
-  function handleChange(e){
+
+  function handleChange(e) {
     setSearch(e.target.value)
   }
 
 
   return (
     <>
-      <Navbar />
+      <Searchbar />
       {/* <div className={utilStyles.twitterWrapper}>
   {twitterEmbedsArray.map((setOfTweets) => {
     return setOfTweets.map((embedData) => {
@@ -90,7 +90,7 @@ export default function Home({twitterEmbedsArray}) {
 </div> */}
 
       <div className={utilStyles.searchDiv}>
-      <input type="text" placeholder="Search Here" className={utilStyles.navbar} onChange={handleChange} />
+        <input type="text" placeholder="Search Here" className={utilStyles.navbar} onChange={handleChange} />
       </div>
       <div className={utilStyles.breadcrumb}>
         <IconBreadcrumbs />
@@ -103,14 +103,14 @@ export default function Home({twitterEmbedsArray}) {
           width={400}
           alt={name}
         />
-    <div className={utilStyles.div}>
-    <h4>{newDate}</h4>
-    <h1>{name},<br/>{siteTitle}.</h1>
-    <h3>{content} </h3>
-    <h5>{author}</h5>
+        <div className={utilStyles.div}>
+          <h4>{newDate}</h4>
+          <h1>{name},<br />{siteTitle}.</h1>
+          <h3>{content} </h3>
+          <h5>{author}</h5>
         </div>
       </div>
-    
+
     </>
   );
 }

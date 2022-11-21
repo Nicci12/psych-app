@@ -1,11 +1,11 @@
 import layoutStyles from "../styles/layout.module.css";
 import Link from "next/link";
-import Navbar from "../components/Navigation/Navbar";
+import Searchbar from "./Navigation/Searchbar";
 
 export default function Layout({ children, home }) {
   return (
     <>
-      <Navbar />
+      <Searchbar />
       <div className={layoutStyles.container}>
         <main className={layoutStyles.children}>{children}</main>
         {!home && (

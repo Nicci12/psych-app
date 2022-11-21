@@ -4,7 +4,7 @@ import { signIn, signOut } from "next-auth/react";
 import React from "react";
 import { useAuthContext } from "../../context/authContext";
 
-const Navbar = () => {
+const Searchbar = () => {
   const authContext = useAuthContext();
   return (
     <div>
@@ -102,7 +102,7 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Searchbar;
 
 {
   /* <div className={navbarStyles.navbar}>
