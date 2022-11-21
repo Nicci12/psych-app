@@ -27,11 +27,7 @@ Odio eu feugiat pretium nibh ipsum consequat nisl vel pretium. Viverra ipsum nun
 
 Ut porttitor leo a diam sollicitudin tempor id eu nisl. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget est lorem ipsum dolor. Porttitor leo a diam sollicitudin tempor id eu nisl. Et netus et malesuada fames ac. Aliquet lectus proin nibh nisl. Pharetra et ultrices neque ornare aenean euismod. Tristique senectus et netus et. Et leo duis ut diam quam nulla porttitor massa id. Adipiscing elit pellentesque habitant morbi tristique senectus et.
 
-###### https://www.youtube.com/embed/iOULvQUAjfM
-
-###### https://www.youtube.com/embed/iOULvQUAjfM
-
-###### https://www.youtube.com/embed/iOULvQUAjfM
+## Aditonal Resources
 
 ###### https://www.youtube.com/embed/iOULvQUAjfM
 

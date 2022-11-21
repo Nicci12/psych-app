@@ -18,6 +18,17 @@
   background: white;
 }
 
+.articleheader{
+  padding: 30px;
+  font-size: 5rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.link{
+  font-size: 2rem;
+}
+
 .content{
   padding-bottom: 15px;
   text-decoration: underline;
@@ -33,15 +44,13 @@
 .rightcolumn {
   float: left;
   width: 25%;
+  margin-top: 3%;
   padding-left: 20px;
   
 }
- .tocTitle:hover{
-  color: palevioletred;
- }
 
 .tablecard{
-  padding: 40px 40px 40px 40px;
+  padding: 90px 90px 90px 90px;
   background-color: #fbfbfb;
   border-radius: 70px;
 }

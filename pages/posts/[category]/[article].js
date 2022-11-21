@@ -39,8 +39,7 @@ export async function getStaticProps({ params }) {
       if (newSplit[1]) {
         endOfString = newSplit[1];
       }
-      const newIframeString = `<iframe src=${iframeSrc} allowFullscreen="true" width="100%" height="350px" style="border:none;justify-self:center;margin:20px 0;"></iframe>`;
-      console.log(newIframeString);
+      const newIframeString = `<iframe src=${iframeSrc} allowFullscreen="true" width="30%" height="200px" style="border:none;justify-self:center;margin:20px 0 0 200px;"></iframe>`;
       return newIframeString + endOfString;
     } else {
       return itemH6;
@@ -110,6 +109,7 @@ export default function Article({ article, postData, categoriesObj }) {
 
   return (
     <Layout>
+      <h1 className={tocStyles.articleheader}>Article Posts</h1>
       {windowWidth < 750 && (
         <div className={tocStyles.hamburgerMenu} onClick={toggleBlogToc}>
           <div></div>
@@ -176,49 +176,33 @@ export default function Article({ article, postData, categoriesObj }) {
         <div className={tocStyles.rightcolumn}>
           <div className={tocStyles.card}>
             <div className={tocStyles.tablecard}>
-              <h4 className={tocStyles.content}>Table Of Contents</h4>
+              <h1 className={tocStyles.content}>Table Of Contents</h1>
                 {postData.h2TitlesArray.map((heading, index) => {
                   if (heading.replace(/ /g, "-") === selectedHeader) {
                     return (
-                      <h3
-                        className={tocStyles.headingTitle}
+                      <h2
+                        className={tocStyles.link}
                         key={heading + index}>
                         {heading}
-                      </h3>
+                      </h2>
                     );
                   } else {
                     return (
-                      <h3
-                        className={tocStyles.headingTitle}
+                      <h2
+                        className={tocStyles.link}
                         onClick={() => {
                           setSelectedHeader(heading.replace(/ /g, "-"));
                         }}
                         key={heading + index}>
-                        <a href={`#${heading.replace(/ /g, "-")}`}>{heading}</a>
-                      </h3>
+                        <a  className={tocStyles.link} href={`#${heading.replace(/ /g, "-")}`}>{heading}</a>
+                      </h2>
                     );
                   }
                 })}
             </div>
           </div>
-          <div className={tocStyles.card}>
-            <h3>Popular Post</h3>
-            <div className={tocStyles.fakeimg}>Image</div>
-            <div className={tocStyles.fakeimg}>Image</div>
-            <div className={tocStyles.fakeimg}>Image</div>
-          </div>
         </div>
       </div>
-
-      {/* <div className={tocStyles.header}>{article.replace(/-/g, "-")}</div>
-      <div>{category}</div>
-      <Date dateString={postData.date} />
-      <img src={postData.image} />
-      <div
-        dangerouslySetInnerHTML={{
-          __html: postData.contentHtml,
-        }}
-      /> */}
     </Layout>
   );
 }
