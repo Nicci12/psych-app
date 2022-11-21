@@ -12,6 +12,7 @@
     "@sendgrid/mail": "^7.7.0",
     "date-fns": "^2.11.1",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.31.11",
     "framer-motion": "^7.6.4",
     "gray-matter": "^4.0.3",
     "mdb-react-ui-kit": "^5.0.0",
