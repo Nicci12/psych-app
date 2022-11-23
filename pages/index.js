@@ -5,14 +5,12 @@ import { getTwitterUserByHandle } from "../lib/twitter";
 import Searchbar from "../components/Navigation/Searchbar";
 import { searchCategories } from "../lib/categories";
 
-
 export const name = "Welcome to Alternative Wellness";
 export const siteTitle = "A mental health blog";
-export const content = "This website is aimed at helping individuals find alternative types of treatment for mental health";
-export const author = "Written and Created by Nicci Dimant"
-export const newDate = [
-  new Date().toLocaleDateString(),
-];
+export const content =
+  "This website is aimed at helping individuals find alternative types of treatment for mental health";
+export const author = "Written and Created by Nicci Dimant";
+export const newDate = [new Date().toLocaleDateString()];
 
 export async function getStaticProps() {
   const categories = getCategories();
@@ -32,31 +30,27 @@ export async function getStaticProps() {
 }
 
 export default function Home({ twitterEmbedsArray }) {
-  const [status, setStatus] = useState({selectedTopic: ""})
+  const [status, setStatus] = useState({ selectedTopic: "" });
 
   useEffect(() => {
     console.log(twitterEmbedsArray);
   }, []);
-  
-  
-  function handleSearchCategoryClicked(item){
-    setStatus({...status, selectedTopic: item})
-  }
-  
-  useEffect(() =>{
-    setStatus({...status, selectedTopic : searchCategories[0] })
-  }, [])
-  
-  useEffect(() =>{
-    console.log(status)
-  }, [status])
 
+  function handleSearchCategoryClicked(item) {
+    setStatus({ ...status, selectedTopic: item });
+  }
+
+  useEffect(() => {
+    setStatus({ ...status, selectedTopic: searchCategories[0] });
+  }, []);
+
+  useEffect(() => {
+    console.log(status);
+  }, [status]);
 
   function handleChange(e) {
-    setStatus({...status, search : e.target.value })
+    setStatus({ ...status, search: e.target.value });
   }
- 
-
 
   return (
     <>
@@ -103,26 +97,54 @@ export default function Home({ twitterEmbedsArray }) {
 </div> */}
 
       <div className={utilStyles.searchDiv}>
-    <input type="text"  placeholder={`Search ${status.selectedTopic.name}`} className={utilStyles.navbar} onChange={handleChange} />
-    </div>
-    <div className={utilStyles.container}>
-    <div className={utilStyles.breadcrumbs}>
-      {searchCategories.map(item =>{
-          return  <div onClick={()=>handleSearchCategoryClicked(item)} className={item.name === status.selectedTopic.name ? utilStyles.topicName : utilStyles.name}>
-     <div>{item.name}/</div>   
-        <div className={utilStyles.topics}>
-      {item.name=== status.selectedTopic.name? <img src={item.image}></img> : <div className={utilStyles.noIma}></div>}
-        </div>
-        </div>  
-        })}
+        <input
+          type="text"
+          placeholder={`Search ${status.selectedTopic.name}`}
+          className={utilStyles.navbar}
+          onChange={handleChange}
+        />
+      </div>
+      <div className={utilStyles.container}>
+        <div className={utilStyles.breadcrumbs}>
+          {searchCategories.map((item) => {
+            return (
+              <div
+                onClick={() => handleSearchCategoryClicked(item)}
+                className={
+                  item.name === status.selectedTopic.name
+                    ? utilStyles.topicName
+                    : item.name
+                }>
+                {item.name}/
+              </div>
+            );
+          })}
         </div>
         <div className={utilStyles.infotext}>
+          <span className={utilStyles.textspan}>
           <h4>{newDate}</h4>
-          <h1>{name},<br />{siteTitle}.</h1>
+          <h1>
+            {name},<br />
+            {siteTitle}.
+          </h1>
           <h3>{content} </h3>
           <h5>{author}</h5>
+          </span>
+          {searchCategories.map((item) => {
+            return (
+              <div className={utilStyles.topics}>
+                {item.name === status.selectedTopic.name ? (
+                  <div className={utilStyles.breadcrumbImages}>
+                    <img src={item.image}></img>
+                  </div>
+                ) : (
+                  <div className={utilStyles.noImage}></div>
+                )}
+              </div>
+          );
+        })}
         </div>
-        </div>
+      </div>
     </>
-  )
-      }
+  );
+}
