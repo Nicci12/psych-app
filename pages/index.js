@@ -1,10 +1,10 @@
-import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 import { getCategories, getSortedPostsData } from "../lib/posts";
 import React, { useState, useEffect } from "react";
-import IconBreadcrumbs from "../components/Breadcrumbs/breadcrumbs";
 import { getTwitterUserByHandle } from "../lib/twitter";
 import Searchbar from "../components/Navigation/Searchbar";
+import { searchCategories } from "../lib/categories";
+
 
 export const name = "Welcome to Alternative Wellness";
 export const siteTitle = "A mental health blog";
@@ -32,17 +32,30 @@ export async function getStaticProps() {
 }
 
 export default function Home({ twitterEmbedsArray }) {
-  const [search, setSearch] = useState("")
+  const [status, setStatus] = useState({selectedTopic: ""})
 
   useEffect(() => {
     console.log(twitterEmbedsArray);
   }, []);
-
+  
+  
+  function handleSearchCategoryClicked(item){
+    setStatus({...status, selectedTopic: item})
+  }
+  
+  useEffect(() =>{
+    setStatus({...status, selectedTopic : searchCategories[0] })
+  }, [])
+  
+  useEffect(() =>{
+    console.log(status)
+  }, [status])
 
 
   function handleChange(e) {
-    setSearch(e.target.value)
+    setStatus({...status, search : e.target.value })
   }
+ 
 
 
   return (
@@ -90,28 +103,26 @@ export default function Home({ twitterEmbedsArray }) {
 </div> */}
 
       <div className={utilStyles.searchDiv}>
-        <input type="text" placeholder="Search Here" className={utilStyles.navbar} onChange={handleChange} />
-      </div>
-      <div className={utilStyles.breadcrumb}>
-        <IconBreadcrumbs />
-      </div>
-      <div className={utilStyles.container}>
-        <Image
-          className={utilStyles.picture}
-          src="/images/profile.jpeg"
-          height={400}
-          width={400}
-          alt={name}
-        />
-        <div className={utilStyles.div}>
+    <input type="text"  placeholder={`Search ${status.selectedTopic.name}`} className={utilStyles.navbar} onChange={handleChange} />
+    </div>
+    <div className={utilStyles.container}>
+    <div className={utilStyles.breadcrumbs}>
+      {searchCategories.map(item =>{
+          return  <div onClick={()=>handleSearchCategoryClicked(item)} className={item.name === status.selectedTopic.name ? utilStyles.topicName : utilStyles.name}>
+     <div>{item.name}/</div>   
+        <div className={utilStyles.topics}>
+      {item.name=== status.selectedTopic.name? <img src={item.image}></img> : <div className={utilStyles.noIma}></div>}
+        </div>
+        </div>  
+        })}
+        </div>
+        <div className={utilStyles.infotext}>
           <h4>{newDate}</h4>
           <h1>{name},<br />{siteTitle}.</h1>
           <h3>{content} </h3>
           <h5>{author}</h5>
         </div>
-      </div>
-
+        </div>
     </>
-  );
-}
-
+  )
+      }
