@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap');
 
+@media only screen and (min-width: 750px) {
+  .hero{
+    width:100%
+  }
+}
+
 .heading {
   font-family: 'Delius', cursive;
   text-align: center;
@@ -25,32 +31,6 @@ img.picture{
   display: flex;
   align-content: center;
   border-radius: 50%;
-}
-
-.borderCircle {
-  border-radius: 9999px;
-}
-
-.colorInherit {
-  color: inherit;
-}
-
-.padding1px {
-  padding-top: 1px;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.listItem {
-  margin: 0 0 1.25rem;
-}
-
-.lightText {
-  color: #666;
 }
 
 .container{
@@ -80,11 +60,17 @@ img.picture{
 
 }
 
-.infotext{
+.landingPageText{
 display: flex;
-flex-direction: row;
+flex-direction: row-reverse;
 align-items: center;
-padding:40px 40px 0 40px;
+
+}
+
+.textspan{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 

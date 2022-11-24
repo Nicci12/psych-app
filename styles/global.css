@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box;
 }
+
+
+.content {
+  position: absolute;
+  top: 0;
+  padding: 120px 10px;
+  margin-left: 0px;
+}
+
 html,
 body {
   padding: 0;

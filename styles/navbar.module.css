@@ -13,6 +13,12 @@
   z-index: 100;
 }
 
+@media only screen and (min-width: 750px) {
+  .navbar{
+    width:100%
+  }
+}
+
 .navbarLeft {
   color: black;
   display: flex;

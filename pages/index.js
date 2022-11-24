@@ -4,11 +4,12 @@ import React, { useState, useEffect } from "react";
 import { getTwitterUserByHandle } from "../lib/twitter";
 import Searchbar from "../components/Navigation/Searchbar";
 import { searchCategories } from "../lib/categories";
+import Image from "next/image";
 
 export const name = "Welcome to Alternative Wellness";
-export const siteTitle = "A mental health blog";
+export const siteTitle = "A Mental Health Blog";
 export const content =
-  "This website is aimed at helping individuals find alternative types of treatment for mental health";
+  "This website is aimed at informing individuals about psychadelic assited treatment for mental health";
 export const author = "Written and Created by Nicci Dimant";
 export const newDate = [new Date().toLocaleDateString()];
 
@@ -54,6 +55,7 @@ export default function Home({ twitterEmbedsArray }) {
 
   return (
     <>
+    <div className={utilStyles.hero}>
       <Searchbar />
       {/* <div className={utilStyles.twitterWrapper}>
   {twitterEmbedsArray.map((setOfTweets) => {
@@ -120,30 +122,31 @@ export default function Home({ twitterEmbedsArray }) {
             );
           })}
         </div>
-        <div className={utilStyles.infotext}>
+        <div className={utilStyles.landingPageText}>
           <span className={utilStyles.textspan}>
-          <h4>{newDate}</h4>
-          <h1>
-            {name},<br />
-            {siteTitle}.
-          </h1>
-          <h3>{content} </h3>
-          <h5>{author}</h5>
+            <h4>{newDate}</h4>
+            <h1>
+              {name},<br />
+              {siteTitle}.
+            </h1>
+            <h4 className={utilStyles.content}>{content} </h4>
+            <h5>{author}</h5>
           </span>
           {searchCategories.map((item) => {
             return (
               <div className={utilStyles.topics}>
                 {item.name === status.selectedTopic.name ? (
                   <div className={utilStyles.breadcrumbImages}>
-                    <img src={item.image}></img>
+                    <Image width={600} height={500} src={item.image}></Image>
                   </div>
                 ) : (
                   <div className={utilStyles.noImage}></div>
                 )}
               </div>
-          );
-        })}
+            );
+          })}
         </div>
+      </div>
       </div>
     </>
   );
