@@ -3,12 +3,19 @@ import navbarStyles from "../../styles/navbar.module.css";
 import { signIn, signOut } from "next-auth/react";
 import React from "react";
 import { useAuthContext } from "../../context/authContext";
-
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+ 
 const Searchbar = () => {
   const authContext = useAuthContext();
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className=" me-auto navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           {authContext.user === "admin" && (
             <Link href={`/admin`}>
@@ -18,17 +25,7 @@ const Searchbar = () => {
           <a className="navbar-brand" href="/">
             Alternative Wellness
           </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarText"
-            aria-controls="navbarText"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i className="fas fa-bars"></i>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarText">
+          <div className="expand d-flex flex-directio-row navbar-expand" id="navbarText">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link href="/">

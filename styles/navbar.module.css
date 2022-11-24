@@ -17,6 +17,9 @@
   .navbar{
     width:100%
   }
+  .nav-link{
+    margin-right: 30%;
+  }
 }
 
 .navbarLeft {
