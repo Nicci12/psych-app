@@ -3,14 +3,7 @@ import navbarStyles from "../../styles/navbar.module.css";
 import { signIn, signOut } from "next-auth/react";
 import React from "react";
 import { useAuthContext } from "../../context/authContext";
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
- 
+
 const Searchbar = () => {
   const authContext = useAuthContext();
   return (

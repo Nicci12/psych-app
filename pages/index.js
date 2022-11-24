@@ -6,11 +6,9 @@ import Searchbar from "../components/Navigation/Searchbar";
 import { searchCategories } from "../lib/categories";
 import Image from "next/image";
 
-export const name = "Welcome to Alternative Wellness";
-export const siteTitle = "A Mental Health Blog";
+export const name = "Alternative Wellness";
 export const content =
-  "This website is aimed at informing individuals about psychadelic assited treatment for mental health";
-export const author = "Written and Created by Nicci Dimant";
+  "All things mental health and alternative treatment"
 export const newDate = [new Date().toLocaleDateString()];
 
 export async function getStaticProps() {
@@ -108,6 +106,7 @@ export default function Home({ twitterEmbedsArray }) {
       </div>
       <div className={utilStyles.container}>
         <div className={utilStyles.breadcrumbs}>
+          <span className="mx-2">Search According to Catergories:</span>
           {searchCategories.map((item) => {
             return (
               <div
@@ -123,15 +122,13 @@ export default function Home({ twitterEmbedsArray }) {
           })}
         </div>
         <div className={utilStyles.landingPageText}>
-          <span className={utilStyles.textspan}>
+          <div className={utilStyles.textdiv}>
             <h4>{newDate}</h4>
-            <h1>
-              {name},<br />
-              {siteTitle}.
+            <h1 className={utilStyles.heading}>
+              {name}
             </h1>
-            <h4 className={utilStyles.content}>{content} </h4>
-            <h5>{author}</h5>
-          </span>
+            <h2 className>{content} </h2>
+          </div>
           {searchCategories.map((item) => {
             return (
               <div className={utilStyles.topics}>
