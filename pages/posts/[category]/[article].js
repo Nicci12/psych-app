@@ -39,7 +39,7 @@ export async function getStaticProps({ params }) {
       if (newSplit[1]) {
         endOfString = newSplit[1];
       }
-      const newIframeString = `<iframe src=${iframeSrc} allowFullscreen="true" width="30%" height="200px" style="border:none;justify-self:center;margin:20px 0 0 200px;"></iframe>`;
+      const newIframeString = `<iframe src=${iframeSrc} allowFullscreen="true" width="30%" height="200px" style="border:none;align-self:center;margin:20px 0 0 20px;"></iframe>`;
       return newIframeString + endOfString;
     } else {
       return itemH6;
@@ -109,7 +109,6 @@ export default function Article({ article, postData, categoriesObj }) {
 
   return (
     <Layout>
-      <h1 className={tocStyles.articleheader}>Article Posts</h1>
       {windowWidth < 750 && (
         <div className={tocStyles.hamburgerMenu} onClick={toggleBlogToc}>
           <div></div>
@@ -159,8 +158,8 @@ export default function Article({ article, postData, categoriesObj }) {
       <div className={tocStyles.row}>
         <div className={tocStyles.leftcolumn}>
           <div className={tocStyles.card}>
-            <h2>{article.replace(/-/g, " ")}</h2>
-            <h6>
+            <h2 className={tocStyles.header}>{article.replace(/-/g, " ")}</h2>
+            <h6 className={tocStyles.date}>
               <Date dateString={postData.date} />
             </h6>
             <img className={tocStyles.fakeimg} src={postData.image} />
@@ -175,27 +174,31 @@ export default function Article({ article, postData, categoriesObj }) {
         </div>
         <div className={tocStyles.rightcolumn}>
           <div className={tocStyles.card}>
-            <div className={tocStyles.tablecard}>
               <h1 className={tocStyles.content}>Table Of Contents</h1>
+            <div className={tocStyles.tablecard}>
                 {postData.h2TitlesArray.map((heading, index) => {
                   if (heading.replace(/ /g, "-") === selectedHeader) {
                     return (
-                      <h2
+                      <ul>
+                      <li
                         className={tocStyles.link}
                         key={heading + index}>
                         {heading}
-                      </h2>
+                      </li>
+                      </ul>
                     );
                   } else {
                     return (
-                      <h2
+                      <ul>
+                      <li
                         className={tocStyles.link}
                         onClick={() => {
                           setSelectedHeader(heading.replace(/ /g, "-"));
                         }}
                         key={heading + index}>
                         <a  className={tocStyles.link} href={`#${heading.replace(/ /g, "-")}`}>{heading}</a>
-                      </h2>
+                      </li>
+                      </ul>
                     );
                   }
                 })}
