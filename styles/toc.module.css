@@ -20,6 +20,8 @@
 }
 
 .link{
+  display: flex;
+  flex-wrap: wrap;
 font-size: small;
 text-align: start;
 }
@@ -157,12 +159,34 @@ text-align: start;
 }
 
 
-@media only screen and (min-width: 700px) {
-  .blogTocWrapper {
+@media only screen and (max-width: 700px) {
+    .blogTocWrapper {
     display: block;
+  }
+
+  .rightcolumn {
+    float: left;
+    width: 50%;
+    margin-top: 3%;
+    padding-left: 20px;
+    
+  }
+
+  .leftcolumn {
+    float: left;
+    width: 50%;
+    margin-top: 3%;
+    padding-left: 20px;
+    
+  }
+
+  .card {
+    display: block;
+    width: 100%;
   }
 
   .headingsTocWrapper {
     display: block;
   }
+
 }

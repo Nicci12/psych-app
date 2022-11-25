@@ -3,7 +3,7 @@ import layoutStyles from "../../styles/layout.module.css";
 
 export default function Categories({ categoriesObj }) {
     return (
-      <div>
+      <>
         {Object.keys(categoriesObj).map((category) => {
           return (
             <div className={layoutStyles.titles} key={category}>
@@ -16,7 +16,7 @@ export default function Categories({ categoriesObj }) {
             </div>
           );
         })}
-      </div>
+      </>
     );
   }
 
