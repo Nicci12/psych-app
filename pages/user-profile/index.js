@@ -51,6 +51,7 @@ export default function MyProfile() {
   return (
     <>
       <Layout>
+    <>
         <div className={profileStyles.heading}>
           <span className={profileStyles.span}>
             {" "}
@@ -193,8 +194,9 @@ export default function MyProfile() {
             </div>
           </div>
         </div>
-      </Layout>
     </>
+      </Layout>
+      </>
   );
 }
 

@@ -6,7 +6,7 @@ export default function Layout({ children, home }) {
   return (
     <>
       <Searchbar />
-      <div className={layoutStyles.container}>
+      <div className={layoutStyles.con}>
         <main className={layoutStyles.children}>{children}</main>
         {!home && (
           <div className={layoutStyles.backToHome}>

@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap");
 
+/* .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
 .header {
   display: flex;
   flex-direction: column;
@@ -38,11 +44,11 @@
 
 
 @media only screen and (max-width: 750px) {
-  .posts, .category {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    text-align: center;
-    justify-content: center;
-  }
-} 
+
+.posts {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+}

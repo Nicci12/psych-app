@@ -53,7 +53,6 @@ export default function Home({ twitterEmbedsArray }) {
 
   return (
     <>
-    <div className={utilStyles.hero}>
       <Searchbar />
       {/* <div className={utilStyles.twitterWrapper}>
   {twitterEmbedsArray.map((setOfTweets) => {
@@ -95,7 +94,7 @@ export default function Home({ twitterEmbedsArray }) {
     });
   })}
 </div> */}
-
+      <div className={utilStyles.mainDiv}>
       <div className={utilStyles.searchDiv}>
         <input
           type="text"
@@ -131,7 +130,7 @@ export default function Home({ twitterEmbedsArray }) {
           </div>
           {searchCategories.map((item) => {
             return (
-              <div className={utilStyles.topics}>
+            <>
                 {item.name === status.selectedTopic.name ? (
                   <div className={utilStyles.breadcrumbImages}>
                     <Image width={600} height={500} src={item.image}></Image>
@@ -139,7 +138,7 @@ export default function Home({ twitterEmbedsArray }) {
                 ) : (
                   <div className={utilStyles.noImage}></div>
                 )}
-              </div>
+              </>
             );
           })}
         </div>

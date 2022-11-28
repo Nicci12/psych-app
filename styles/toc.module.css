@@ -44,7 +44,6 @@ text-align: start;
 /* Right column */
 .rightcolumn {
   float: left;
-  width: 25%;
   margin-top: 3%;
   padding-left: 20px;
   
@@ -159,34 +158,155 @@ text-align: start;
 }
 
 
-@media only screen and (max-width: 700px) {
-    .blogTocWrapper {
-    display: block;
+@media only screen and (max-width: 750px) {
+  .blogTocWrapper {
+    background-color: #fbfbfb;
+    color: black;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    text-align: left;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 50px;
+  } 
+  
+  .header {
+    padding-bottom: 10px ;
+    text-align: start;
+    background: white;
+    color: black;
+  }
+  
+  .link{
+    display: flex;
+    flex-wrap: wrap;
+  font-size: small;
+  text-align: start;
+  }
+  
+  .rightcolomn{
+    width: 0;
+  }
+  .content{
+    text-align: center;
+    font-size: larger;
+    text-decoration: underline;
+    color: black;
   }
 
-  .rightcolumn {
-    float: left;
-    width: 50%;
-    margin-top: 3%;
-    padding-left: 20px;
-    
+  .tablecard{
+    padding: 30px 10px 0 10px;
+    color: black;
+    background-color: #fbfbfb;
+    border-radius: 70px;
   }
-
-  .leftcolumn {
-    float: left;
-    width: 50%;
-    margin-top: 3%;
-    padding-left: 20px;
-    
-  }
-
-  .card {
-    display: block;
+  
+  /* Fake image */
+  .fakeimg {
     width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    text-align: start;
+    padding: 20px;
+    margin-top: 20px;
   }
 
+  .row{
+    display: flex;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+  
   .headingsTocWrapper {
-    display: block;
+    display: none;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    padding-top: 120px;
   }
-
+  
+  .categoryWrapper {
+    align-self: flex-start;
+    padding-bottom: 30px;
+    padding-left: 5px;
+  }
+  
+  .articlesWrapper {
+    font-size: 14px;
+  }
+  
+  .categoryTitle {
+    border-bottom: 1px solid lightgray;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    width: fit-content;
+  }
+  
+  .articleTitle {
+    line-height: 1.2;
+    margin: 0 5px 12px 0;
+  }
+  
+  .headingTitle {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  
+  .date{
+    color: black;
+    text-align: start;
+  }
+  
+  .hamburgerMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+  }
+  
+  
+  
+  .hamburgerMenu > div {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 3px;
+    width: 50%;
+  }
+  
 }

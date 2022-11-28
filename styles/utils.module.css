@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap');
 
 
-@media only screen and (min-width: 750px) {
-  
   .textdiv{
     display: flex;
     flex-direction: column;
@@ -11,12 +9,6 @@
     text-align: center;
     padding: 0 5rem 0 3rem
   }
-
-  
-  .hero{
-    color: black;
-  }
-
 
   .heading{
     line-height: 6rem;
@@ -36,8 +28,9 @@
 .navbar{
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
-  width: 90%;
+  margin-top: 30px;
+  width: 100%;
+  margin: 20px 20px 20px 20px;
  padding: 10px 10px 10px 10px;
  border-radius: 19px;
  font-size: larger;
@@ -139,5 +132,39 @@
 .noImage{
    display: none;
 }
+
+@media only screen and (max-width: 750px) {
+
+  .mainDiv{
+    width: 70%;
+
+    }
+
+    .container{
+    display: flex;
+    width: 50%;
+  }
+    
+    .navbar{
+      margin: 30px -22% 0 20%;
+      align-self: center;
+    }
+
+  .breadcrumbs {
+    margin-top: 10px;
+    padding: 0 0 0 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .textdiv{
+    padding: 0 0 0 100px;
+  }
+
+  .breadcrumbImages{
+    width: 50%;
+    height: 50%;
+    margin-top: 10px;
+  }
 
 }
