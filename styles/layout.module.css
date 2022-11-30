@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Delius&family=Itim&display=swap");
 
-/* .container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
 .header {
   display: flex;
@@ -15,6 +10,7 @@
   font-size: xx-large;
 }
 
+
 .imgDiv {
   display: flex;
   height: 80%;
@@ -23,8 +19,8 @@
   text-align: center;
 }
 
-.category {
-  margin-top: 2rem;
+.categoryName {
+  margin-top: 5rem;
   color: black;
   margin-bottom: 1rem;
   text-align: center;
@@ -34,6 +30,7 @@
 
 .posts {
   display: flex;
+  flex-direction: row;
   align-items: flex-end;
   padding: 30px 70px 0px 70px;
 }
