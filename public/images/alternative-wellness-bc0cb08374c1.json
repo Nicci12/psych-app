@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "alternative-wellness",
+  "private_key_id": "bc0cb08374c1c2e0fe84ed172f866b5a134d5864",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD3nlFD5G3RLByZ\nmkJOJs3o8Wr3dADuJuEP1xwKx2XDPqXDPFtd+q3mU3/MVvzTuq0CtpUkBGyEUpl4\nbmOpdt2AcOw/5QsCHSfMu2+m1z/JYWpA+TiUtk4pMRNmoEIdy6jB4DCiufyJEI+P\nAvBVPx7lEfc9E9NsjnOQrbD46B28RyEXh5Us6rDXRM6D4ls8hYVwHi1G2SsBAvHR\nP/2EC3nnt0gY4Jg2+UbUx57P/J/B02J7AOnz8hA/xHcpJuLBDd5Sy/u6QZNrZrIL\nAlgQfNzqlczpk/JEYpbZELHNN6dbkgJjIvNozy93UQR6kpzou+alQ/uRjMx0GpQA\nWBqrCqdDAgMBAAECggEAFbe5AO9kAliQGZjCAAC/RpMGArYV7s1SKAWB3CAo+Lrh\n5wHAMbnuzqi8KLvoaNmSmw5Qflw0+FYWR83Gx/I48y70SZZZJNJRz08RN9zhJ1R3\n8ULqh4CF0m8PeIzNv7dBEeAL4/nUAGGHdc+YLKHgn863lI/Ml1TXJfVV9D7HfN/E\nCQIdcuuX+QxW9P5X+ZrUVfFzV9qv0cpNkee+KwzSB16qRZ9AO4S7Na1k1zYkgINS\nkZ44HoaTgsJ73cT0CmhXgie19qTKU2d+tI5jSgueNXRsAgA00IK+UEGqR0EQw0I7\nFLJHABggAwQrawprGn2W56ELf4i7f+Z2Nn1B/EDLwQKBgQD75tI0mJx3P6/mMQEe\n2w74ALAVKbburTFq1jGFA7nlwn/AZyN/xTiWfKRd6mQdfQ9qH7SBJAl/AQqS6Tk4\nAf9u75Oz0DrRId8xaNvpoD9jBZ3NRt23WWUk3S0cNxHRHg+vuj897R36k7z5OwID\nYDzwTnO1hzvNkFSUVydJwShEOQKBgQD7pagVte3lTJEqiShGLmM52VlfIxmy9A7W\nyDnB883g60mgzO14KkWlA312fiLxflC/qdO5qJh84GWCnOK4Is2A6cHOfWk7a3mD\nTaiqRvVQhB3hEHEpP88AMPpz4BvcGtCarf7NEkRaVqeIKnYjYUW23SPdQ1BTe3gN\nsTsgqDOfWwKBgEetLjL5Gcx0usBtQTxeaKv4xiG/dOYFMgKMYBrRLJxL873zmw5I\nOAnZ/YsbntElPLWdv+bfMjSJP1D+O+HL77rJQOXxYksPsEqG48xeZKrwdi5q87uw\nHC+ZH7TflppCS4RdIpGkXttmHmdseu4q/CwEprgIeuPLJcXv5qX96E9BAoGBAIFi\niymegNKEq57TJoHvF9WGiwz/XxdDpN2J1SiD0jbywsiKlQ5TrbtKMBfcgtrnt1zU\nVKgAp2aNeaPORkOmoULG7X7dvF1wxOld5HqoQTlEtJgjfAtZY3UVubAaajihEOB2\n1ata2QoZw8mfC17lhJKg4O/CzGof8XoYxe3kjaZBAoGAMuaFStF1T5O0crczyO+p\nxRuiTH3HpKwJ5Ew/EATxrpJnGWfcl2MaiJZZ45uWAbuyD72ewcCH06oIftGYP/29\nosgdDEcVZt90RPi1qfw5xZsDrM8znSBOuhS/ioxlPMOZNVi/9TR0ZNmqTEOsVaZ3\nHtU6b/nXksaVQtxKePpbUBw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "alt-wellness@alternative-wellness.iam.gserviceaccount.com",
+  "client_id": "100754481283241428729",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alt-wellness%40alternative-wellness.iam.gserviceaccount.com"
+}

@@ -1,75 +1,158 @@
+import React, { useState } from "react";
 import Link from "next/link";
 import navbarStyles from "../../styles/navbar.module.css";
 import { signIn, signOut } from "next-auth/react";
-import React from "react";
 import { useAuthContext } from "../../context/authContext";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import { Dialog } from "@headlessui/react";
 
 const Searchbar = () => {
   const authContext = useAuthContext();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
-      <Navbar bg="light" expand="lg" width={100}>
-        <Container width={100}>
-              {authContext.user === "admin" && (
-                <Link href={`/admin`}>
-                  <a>Admin Dashboard</a>
+        <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+          <svg
+            className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+            viewBox="0 0 1155 678"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+              fillOpacity=".3"
+              d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+            />
+            <defs>
+              <linearGradient
+                id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+                x1="1155.49"
+                x2="-78.208"
+                y1=".177"
+                y2="474.645"
+                gradientUnits="userSpaceOnUse">
+                <stop stopColor="#9089FC" />
+                <stop offset={1} stopColor="#FF80B5" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div className="px-6 pt-6 lg:px-8">
+          <div>
+            <nav
+              className="flex h-9 items-center justify-between"
+              aria-label="Global">
+              <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+                <a href="#" className="-m-1.5 p-1.5">
+                  <span className="sr-only">Your Company</span>
+                  <img
+                    className="h-8"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div className="flex lg:hidden">
+                <button
+                  type="button"
+                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                  onClick={() => setMobileMenuOpen(true)}>
+                  <span className="sr-only">Open main menu</span>
+                </button>
+              </div>
+                {authContext.user && (
+                <Link href={`/user-profile`}>
+                  <a className={navbarStyles.navbarLinkRight}>
+                    <img
+                      src={`${authContext.user.image}`}
+                      className="rounded-circle"
+                      height="25"
+                      alt="Profile Picture"
+                      loading="lazy"
+                    />
+                  </a>
                 </Link>
               )}
-              <a className="navbar-brand" href="/">
-                Alternative Wellness
-              </a>
-              <div
-                className="expand d-flex flex-directio-row navbar-expand"
-                id="navbarText">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <Link href="/">
-                      <a
-                        className="nav-link active"
-                        aria-current="page"
-                        href="/">
-                        Home
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    {!authContext.user && (
-                      <Link href="/posts">
-                        <a className="d-none" href="/posts">
-                          Posts-disabled
-                        </a>
-                      </Link>
-                    )}
-                  </li>
-                  <li className="nav-item">
-                    {authContext.user && (
-                      <Link href="/posts">
-                        <a className="nav-link active" href="/posts">
-                          Posts
-                        </a>
-                      </Link>
-                    )}
-                  </li>
-                  <li className="nav-item">
-                    {!authContext.user && (
-                      <span>
+              <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+                <Link href="/">
+                  <a
+                    href="/"
+                    className="font-semibold text-gray-900 hover:text-gray-900">
+                    Home
+                  </a>
+                </Link>
+                <Link href="/posts">
+                  <a
+                    href="/posts"
+                    className="font-semibold text-gray-900 hover:text-gray-900">
+                    Posts
+                  </a>
+                </Link>
+              </div>
+              {!authContext.user && (
+                <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+                  <a
+                    className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                    onClick={() => {
+                      signIn();
+                    }}>
+                    Log In
+                  </a>
+                </div>
+              )}
+              {authContext.user && (
+                <a
+                  className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                  onClick={() => {
+                    signOut({
+                      callbackUrl: `${window.location.origin}/`,
+                    });
+                  }}>
+                  Log Out
+                </a>
+              )}
+            </nav>
+            <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+              <Dialog.Panel
+                focus="true"
+                className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
+                <div className="flex h-9 items-center justify-between">
+                  <div className="flex">
+                    <a href="#" className="-m-1.5 p-1.5">
+                      <span className="sr-only">Your Company</span>
+                      <img
+                        className="h-8"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                  <div className="flex">
+                    <button
+                      type="button"
+                      className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                      onClick={() => setMobileMenuOpen(false)}>
+                      <span className="sr-only">Close menu</span>
+                      <div className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-6 flow-root">
+                  <div className="-my-6 divide-y divide-gray-500/10">
+                    <div className="space-y-2 py-6">
+                      <p>H</p>
+                    </div>
+                    <div className="py-6">
+                      {!authContext.user && (
                         <a
-                          className="nav-link active"
+                          className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                           onClick={() => {
                             signIn();
                           }}>
                           Sign In
                         </a>
-                      </span>
-                    )}
-                  </li>
-                  <li className="nav-item">
-                    {authContext.user && (
-                      <div>
+                      )}
+                      {!authContext.user && (
                         <a
-                          className="nav-link active"
+                          className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                           onClick={() => {
                             signOut({
                               callbackUrl: `${window.location.origin}/`,
@@ -77,79 +160,16 @@ const Searchbar = () => {
                           }}>
                           Sign Out
                         </a>
-                      </div>
-                    )}
-                  </li>
-                </ul>
-                {authContext.user && (
-                  <Link href={`/user-profile`}>
-                    <a className={navbarStyles.navbarLinkRight}>
-                      <img
-                        src={`${authContext.user.image}`}
-                        className="rounded-circle"
-                        height="25"
-                        alt="Profile Picture"
-                        loading="lazy"
-                      />
-                    </a>
-                  </Link>
-                )}
-              </div>
-        </Container>
-      </Navbar>
-    </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </Dialog.Panel>
+            </Dialog>
+          </div>
+        </div>
+      </>
   );
 };
 
 export default Searchbar;
-
-{
-  /* <div className={navbarStyles.navbar}>
-{authContext.user === "admin" && (
-  <Link href={`/admin`}>
-    <a>Admin Dashboard</a>
-  </Link>
-)}
-
-{authContext.user && (
-  <Link href={`/user-profile`}>
-    <a className={navbarStyles.navbarLinkRight}>
-      <img
-        src={`${authContext.user.image}`}
-        className={navbarStyles.navbarImage}
-      />
-    </a>
-  </Link>
-)}
-<div className={navbarStyles.navbarLeft}>
-  <Link href="/">
-    <a className={navbarStyles.navbarLinkLeft}>Home</a>
-  </Link>
-</div>
-<div className={navbarStyles.navbarRight}>
-  <Link href="/posts">
-    <a className={navbarStyles.navbarLinkRight}>Posts</a>
-  </Link>
-  {!authContext.user && (
-    <button
-      className={navbarStyles.navbarButton}
-      onClick={() => {
-        signIn();
-      }}
-    >
-      Sign In
-    </button>
-  )}
-  {authContext.user && (
-    <button
-      className={navbarStyles.navbarButton}
-      onClick={() => {
-        signOut();
-      }}
-    >
-      Sign Out
-    </button>
-  )}
-  
-</div> */
-}

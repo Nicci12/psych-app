@@ -22,16 +22,20 @@
     flex-wrap: wrap;
   }
   
-.span{
+.firstDiv{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
-.name{
+ /* .name{
   padding-left: 10px;
   text-transform:capitalize;
-}
+  text-align:center;
+  font-size: x-large;
+}  */ 
 
 .btn{
   margin-top: 20px;
