@@ -244,13 +244,11 @@ export default function Article({ article, postData, categoriesObj }) {
           {postData.category.replace(/-/g, " ")}
         </h2>
         <span>
-          <p className="text-start">
             <div
               dangerouslySetInnerHTML={{
                 __html: postData.contentHtml,
               }}
             />
-          </p>
         </span>
       </div>
     </Layout>
