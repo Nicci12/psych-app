@@ -2,7 +2,7 @@ import {getCategoryPaths, getSortedPostsData} from '../../../lib/posts'
 import Categories from '../../../components/posts/categories'
 
 export async function getStaticProps({ params }) {
-  const categoryPosts = getSortedPostsData(params.category, params.paragraph);
+  const categoryPosts = getSortedPostsData(params.category);
   return {
     props: {
       category: params.category,
