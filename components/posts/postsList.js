@@ -9,7 +9,7 @@ export default function PostsList({ category, categoryPosts }) {
     <>
       {categoryPosts.map((post) => {
         return (
-            <div className="py-8 px-4 mx-auto lg:py-16 lg:px-6 max-w-screen-md">
+            <div className="py-8 px-4 mx-auto lg:py-4 lg:px-2 max-w-screen-md">
               <div className="grid gap-2 grid-col-2">
                 <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-400 dark:border-gray-700">
                   <Link href={`/posts/${category}/${post.id}`} key={post.title}>

@@ -155,9 +155,9 @@ export default function Article({ article, postData, categoriesObj }) {
           })}
         </div>
       )}
-      <main class="pt-8 my-4 pb-16 lg:pt-16 lg:pb-2 bg-white dark:bg-gray-900">
+      <main class="pt-8 my-4 lg:pt-16 lg:pb-2 bg-white dark:bg-gray-900">
         <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
-          <div class="grid grid-flow-col gap-4">
+          <div class="grid items-center grid-flow-col gap-4">
             <div class="row-span-1">
               <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
                 <header class="mb-4 lg:mb-6 not-format">
@@ -201,21 +201,12 @@ export default function Article({ article, postData, categoriesObj }) {
                   <img src={postData.image} className="rounded" alt="" />
                   <figcaption>Anonymous</figcaption>
                 </figure>
-                {/* <h2 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-              {postData.category.replace(/-/g, " ")}
-            </h2>
-            <span>
-              <p>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: postData.contentHtml,
-                  }}
-                />
-              </p>
-            </span> */}
               </article>
             </div>
-            <div className="row-span-2 col-span-2 mt-8 ml-8">
+            <div className="row-span-2 col-span-2 mt-8 ml-8 items-center">
+              <h1 className="text-justify font-semi-bold underline text-3xl">
+                Table Contents
+              </h1>
               {postData.h2TitlesArray.map((heading, index) => {
                 if (heading.replace(/ /g, "-") === selectedHeader) {
                   return (
@@ -248,12 +239,12 @@ export default function Article({ article, postData, categoriesObj }) {
           </div>
         </div>
       </main>
-      <div class="flex flex-col justify-between px-4 mx-auto max-w-screen-xl ">
+      <div class="flex flex-col justify-between mx-4 my-4 px-4 mx-auto max-w-screen-xl ">
         <h2 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
           {postData.category.replace(/-/g, " ")}
         </h2>
-        <span className="text-start">
-          <p>
+        <span>
+          <p className="text-start">
             <div
               dangerouslySetInnerHTML={{
                 __html: postData.contentHtml,

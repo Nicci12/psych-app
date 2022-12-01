@@ -45,8 +45,8 @@ const Searchbar = () => {
             <nav
               className="flex h-9 items-center justify-between"
               aria-label="Global">
-              <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-                <a href="#" className="-m-1.5 p-1.5">
+              <div className="flex items-center lg:min-w-0 lg:flex-1" aria-label="Global">
+                <a href="#" className="pt-4 p-1.5">
                   <span className="sr-only">Alternative Wellness</span>
                   <Image
                     width={100}
