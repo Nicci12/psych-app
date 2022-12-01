@@ -2,7 +2,7 @@ import {getCategoryPaths, getSortedPostsData} from '../../../lib/posts'
 import Categories from '../../../components/posts/categories'
 
 export async function getStaticProps({ params }) {
-  const categoryPosts = getSortedPostsData(params.category);
+  const categoryPosts = getSortedPostsData(params.category, params.paragraph);
   return {
     props: {
       category: params.category,
@@ -11,7 +11,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Category({ category, categoryPosts }) {
+export default function Category({ category, categoryPosts}) {
   return <Categories categoriesObj={{ [category]: categoryPosts }} />
 }
 

@@ -68,7 +68,7 @@ export default function Home({ twitterEmbedsArray }) {
             className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
             viewBox="0 0 1155 678"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="/public/images/logo.png">
             <path
               fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
               fillOpacity=".3"
@@ -90,7 +90,7 @@ export default function Home({ twitterEmbedsArray }) {
         </div>
         <main>
           <div className="relative px-6 pt-6 lg:px-8">
-            <div className="mx-auto max-w-3xl pt-15 pb-20 sm:pt-48 sm:pb-40">
+            <div className="mx-auto max-w-3xl pt-15 pb-20 sm:pt-20 sm:pb-30">
               <div>
                 {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center"> */}
                 <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">

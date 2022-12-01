@@ -4,6 +4,7 @@ image: "https://post.psychcentral.com/wp-content/uploads/sites/4/2021/12/psyched
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 article: "psilocybin-and-magic-mushrooms"
+paragraph: "this article is about psilocybin"
 uid: "5"
 ---
 

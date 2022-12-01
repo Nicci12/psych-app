@@ -4,6 +4,7 @@ image: "https://npr.brightspotcdn.com/dims4/default/29672d8/2147483647/strip/tru
 role: "admin,subscriber,guest"
 date: "2020-01-01"
 article: "psilocybin-and-mental-health"
+paragraph: "this article is about psilocybin"
 uid: "6"
 ---
 

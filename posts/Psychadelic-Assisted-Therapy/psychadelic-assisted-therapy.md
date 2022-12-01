@@ -4,6 +4,7 @@ image: "https://lmg-labmanager.s3.amazonaws.com/assets/articleNo/27746/aImg/5038
 role: "admin,subscriber,guest"
 date: "2022-01-01"
 article: "psychadelic-assisted-therapy"
+paragraph: "this article is about psychadelic assisted therapy"
 uid: "1"
 ---
 

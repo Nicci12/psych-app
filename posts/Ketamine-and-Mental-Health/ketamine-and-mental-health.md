@@ -4,6 +4,7 @@ image: "https://miro.medium.com/max/1200/1*REmpPZZSkDbd2TIKM72sDQ.jpeg"
 role: "admin,subscriber,guest"
 date: "2019-01-01"
 article: "ketamine-and-mental-health"
+paragraph: "this article is about ketamine"
 uid: "3"
 ---
 ## Lorem ipsum dolor

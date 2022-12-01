@@ -4,6 +4,11 @@ import navbarStyles from "../../styles/navbar.module.css";
 import { signIn, signOut } from "next-auth/react";
 import { useAuthContext } from "../../context/authContext";
 import { Dialog } from "@headlessui/react";
+import Health from "../../public/images/Health.png"
+import Image from "next/image";
+  
+
+
 
 const Searchbar = () => {
   const authContext = useAuthContext();
@@ -42,11 +47,12 @@ const Searchbar = () => {
               aria-label="Global">
               <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
                 <a href="#" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
+                  <span className="sr-only">Alternative Wellness</span>
+                  <Image
+                    width={100}
+                    height={100}
+                    src={Health}
+                    alt="logo"
                   />
                 </a>
               </div>
@@ -58,20 +64,7 @@ const Searchbar = () => {
                   <span className="sr-only">Open main menu</span>
                 </button>
               </div>
-                {authContext.user && (
-                <Link href={`/user-profile`}>
-                  <a className={navbarStyles.navbarLinkRight}>
-                    <img
-                      src={`${authContext.user.image}`}
-                      className="rounded-circle"
-                      height="25"
-                      alt="Profile Picture"
-                      loading="lazy"
-                    />
-                  </a>
-                </Link>
-              )}
-              <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+              <div className="hidden items-center lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
                 <Link href="/">
                   <a
                     href="/"
@@ -86,6 +79,18 @@ const Searchbar = () => {
                     Posts
                   </a>
                 </Link>
+                      {authContext.user && (
+                      <Link href={`/user-profile`}>
+                        <a className={navbarStyles.navbarLinkRight}>
+                          <img
+                            src={`${authContext.user.image}`}
+                            className="h-12 w-12 rounded-full ring-2 ring-white"
+                            alt="Profile Picture"
+                            loading="lazy"
+                          />
+                        </a>
+                      </Link>
+                    )}
               </div>
               {!authContext.user && (
                 <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
@@ -117,12 +122,13 @@ const Searchbar = () => {
                 <div className="flex h-9 items-center justify-between">
                   <div className="flex">
                     <a href="#" className="-m-1.5 p-1.5">
-                      <span className="sr-only">Your Company</span>
-                      <img
-                        className="h-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt=""
-                      />
+                      <span className="sr-only">Alternative Wellness</span>
+                      <Image
+                    width={100}
+                    height={100}
+                    src={Health}
+                    alt="logo"
+                  />
                     </a>
                   </div>
                   <div className="flex">

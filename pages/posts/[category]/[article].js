@@ -155,58 +155,98 @@ export default function Article({ article, postData, categoriesObj }) {
           })}
         </div>
       )}
-      <div className={tocStyles.row}>
-        <div className={tocStyles.leftcolumn}>
-          <div className={tocStyles.card}>
-            <h2 className={tocStyles.header}>{article.replace(/-/g, " ")}</h2>
-            <h6 className={tocStyles.date}>
-              <Date dateString={postData.date} />
-            </h6>
-            <img className={tocStyles.fakeimg} src={postData.image} />
-            <span><p>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: postData.contentHtml,
-                }}
-              />
-            </p></span>
+      <main class="pt-8 my-4 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900">
+         {/* <div class="flex justify-between px-4 mx-auto max-w-screen-xl "> */}
+        <div class="grid grid-flow-col gap-4">
+        <div class="row-span-1">
+          <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+            <header class="mb-4 lg:mb-6 not-format">
+              <address class="flex items-center mb-6 not-italic">
+                <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                  <img
+                    class="mr-4 w-16 h-16 rounded-full"
+                    src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                    alt="Jese Leos"></img>
+                  <div>
+                    <a
+                      href="#"
+                      rel="author"
+                      class="text-xl font-bold text-gray-900 dark:text-white">
+                      Nicola Dimant
+                    </a>
+                    <p class="text-base font-light text-gray-500 dark:text-gray-400">
+                      FullStack Developer and content writer
+                    </p>
+                    <p class="text-base font-light text-gray-500 dark:text-gray-400">
+                      <time
+                        pubdate
+                        datetime="2022-02-08"
+                        title="February 8th, 2022">
+                        <Date dateString={postData.date} />
+                      </time>
+                    </p>
+                  </div>
+                </div>
+              </address>
+              <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+                {article.replace(/-/g, " ")}
+              </h1>
+            </header>
+            <p class="lead">
+              Flowbite is an open-source library of UI components built with the
+              utility-first classes from Tailwind CSS. It also includes
+              interactive elements such as dropdowns, modals, datepickers.
+            </p>
+            <figure>
+              <img src={postData.image} className="rounded" alt="" />
+              <figcaption>Anonymous</figcaption>
+            </figure>
+            <h2 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+              {postData.category.replace(/-/g, " ")}
+            </h2>
+            <span>
+              <p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: postData.contentHtml,
+                  }}
+                />
+              </p>
+            </span>
+          </article>
           </div>
-        </div>
-        <div className={tocStyles.rightcolumn}>
-          <div className={tocStyles.card}>
-              <h1 className={tocStyles.content}>Table Of Contents</h1>
-            <div className={tocStyles.tablecard}>
-                {postData.h2TitlesArray.map((heading, index) => {
-                  if (heading.replace(/ /g, "-") === selectedHeader) {
-                    return (
-                      <ul>
-                      <li
-                        className={tocStyles.link}
-                        key={heading + index}>
-                        {heading}
-                      </li>
-                      </ul>
-                    );
-                  } else {
-                    return (
-                      <ul>
-                      <li
-                        className={tocStyles.link}
-                        onClick={() => {
-                          setSelectedHeader(heading.replace(/ /g, "-"));
-                        }}
-                        key={heading + index}>
-                        <a  className={tocStyles.link} href={`#${heading.replace(/ /g, "-")}`}>{heading}</a>
-                      </li>
-                      </ul>
-                    );
-                  }
-                })}
-            </div>
+          <div className="row-span-2 col-span-2">
+              {postData.h2TitlesArray.map((heading, index) => {
+                      if (heading.replace(/ /g, "-") === selectedHeader) {
+                        return (
+                          <ul>
+                          <li
+                            className={tocStyles.link}
+                            key={heading + index}>
+                            {heading}
+                          </li>
+                          </ul>
+                        );
+                      } else {
+                        return (
+                          <ul>
+                          <li
+                            className={tocStyles.link}
+                            onClick={() => {
+                              setSelectedHeader(heading.replace(/ /g, "-"));
+                            }}
+                            key={heading + index}>
+                            <a  className={tocStyles.link} href={`#${heading.replace(/ /g, "-")}`}>{heading}</a>
+                          </li>
+                          </ul>
+                        );
+                      }
+                    })}
+              </div>
           </div>
-        </div>
-      </div>
-    </Layout>
+
+        </main> 
+        </Layout>
   );
 }
 

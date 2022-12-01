@@ -4,6 +4,7 @@ image: "https://i.guim.co.uk/img/media/9c34f8560a4a4d0f0730bcfd03000d578df85453/
 role: "admin,subscriber,guest"
 date: "2022-01-01"
 article: "the-different-types-of-psychadelic-assisted-therapy"
+paragraph: "this article is about psychadelic assisted therapy"
 uid: "2"
 ---
 
