@@ -63,7 +63,7 @@ export default function MyProfile() {
                 Object.keys(authContext.user).map((userKey) => {
                   if (!userKey.includes("_id")) {
                     if (userKey === "image") {
-                      return <img className="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center sm: rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" alt="profile picture" src={`${authContext.user[userKey]}`}></img>
+                      return <img className="block absolute rounded-full shadow-xl mx-auto mb-8 -mt-28 h-48 w-48 bg-cover bg-center sm: rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" alt="profile picture" src={`${authContext.user[userKey]}`}></img>
                     }
                   }
                 })}
