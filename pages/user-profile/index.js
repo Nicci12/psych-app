@@ -5,7 +5,7 @@ import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { updateUserProfile } from "../../lib/mongo/users";
 import { router } from "next/router";
-import Image from "next/image";
+
 
 export default function MyProfile() {
   const authContext = useAuthContext();
@@ -56,18 +56,17 @@ export default function MyProfile() {
             className="border border-inherit pt-8 m-20 rounded-lg lg:rounded-l-lg shadow-2xl "
               id="profile"
            >
-            <div class="w-40 rounder-lg">
+         
               {" "}
+              <div class="p-4 md:p-12 text-center lg:text-left">
               {authContext.user &&
                 Object.keys(authContext.user).map((userKey) => {
                   if (!userKey.includes("_id")) {
                     if (userKey === "image") {
-                      return <img src={`${authContext.user[userKey]}`}></img>;
+                      return <img className="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center sm: rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" alt="profile picture" src={`${authContext.user[userKey]}`}></img>
                     }
                   }
                 })}
-            </div>
-              <div class="p-4 md:p-12 text-center lg:text-left">
                 <h1 class="text-3xl font-bold pt-8 lg:pt-0 capitalize">
                   {" "}
                   {authContext.user &&
@@ -184,7 +183,7 @@ export default function MyProfile() {
                     />
                     <button
                       onClick={handleSaveClicked}
-                      class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+                      class="bg-purple-500 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded-full">
                       Save
                     </button>
                   </dd>
