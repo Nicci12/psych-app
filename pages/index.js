@@ -121,7 +121,7 @@ export default function Home({ twitterEmbedsArray }) {
                               ? utilStyles.topicName
                               : item.name
                           }>
-                          {item.name}
+                          {item.name}/
                         </Tab.List>
                       );
                     })}
