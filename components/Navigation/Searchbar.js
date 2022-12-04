@@ -5,10 +5,6 @@ import { useAuthContext } from "../../context/authContext";
 import Health from "../../public/images/Health.png"
 import Image from "next/image";
 
-
-
-
-
 const Searchbar = () => {
   const authContext = useAuthContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -108,7 +104,7 @@ const Searchbar = () => {
               )}
               {authContext.user && (
                 <Link href={`/user-profile`}>
-                  <a className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  <a>
                     <img
                       src={`${authContext.user.image}`}
                       className="h-12 w-12 rounded-full ring-2 ring-white"

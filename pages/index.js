@@ -113,16 +113,16 @@ export default function Home({ twitterEmbedsArray }) {
                     </span>
                     {searchCategories.map((item) => {
                       return (
-                        <Tab
+                        <Tab.List
                         key={item}
                           onClick={() => handleSearchCategoryClicked(item)}
                           className={
                             item.name === status.selectedTopic.name
                               ? utilStyles.topicName
-                              : 'border m-2 p-16 text-black-900 '
+                              : item.name
                           }>
                           {item.name}
-                        </Tab>
+                        </Tab.List>
                       );
                     })}
                   </div>
