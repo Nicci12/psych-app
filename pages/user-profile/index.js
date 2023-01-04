@@ -51,14 +51,14 @@ export default function MyProfile() {
   return (
     <>
       <Layout>
-        <section class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
-            <div
+        <section ClassName="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
+          <div
             className="border border-inherit pt-8 m-20 rounded-lg lg:rounded-l-lg shadow-2xl "
-              id="profile"
-           >
-         
-              {" "}
-              <div class="p-4 md:p-12 text-center lg:text-left">
+            id="profile"
+          >
+
+            {" "}
+            <div ClassName="p-4 md:p-12 text-center lg:text-left">
               {authContext.user &&
                 Object.keys(authContext.user).map((userKey) => {
                   if (!userKey.includes("_id")) {
@@ -67,12 +67,32 @@ export default function MyProfile() {
                     }
                   }
                 })}
-                <h1 class="text-3xl font-bold pt-8 lg:pt-0 capitalize">
+              <h1 ClassName="text-3xl font-bold pt-8 lg:pt-0 capitalize">
+                {" "}
+                {authContext.user &&
+                  Object.keys(authContext.user).map((userKey) => {
+                    if (!userKey.includes("_id")) {
+                      if (userKey === "name") {
+                        return (
+                          <p className="text-mute" key={userKey._id}>
+                            {`${authContext.user[userKey]}`}
+                          </p>
+                        );
+                      }
+                    }
+                  })}
+              </h1>
+              <div ClassName="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
+              <div className="bg-white-50 lg:text-center px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">
+                  Email address
+                </dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                   {" "}
                   {authContext.user &&
                     Object.keys(authContext.user).map((userKey) => {
                       if (!userKey.includes("_id")) {
-                        if (userKey === "name") {
+                        if (userKey === "email") {
                           return (
                             <p className="text-mute" key={userKey._id}>
                               {`${authContext.user[userKey]}`}
@@ -81,116 +101,96 @@ export default function MyProfile() {
                         }
                       }
                     })}
-                </h1>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
-                <div className="bg-white-50 lg:text-center px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    Email address
-                  </dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                    {" "}
-                    {authContext.user &&
-                      Object.keys(authContext.user).map((userKey) => {
-                        if (!userKey.includes("_id")) {
-                          if (userKey === "email") {
-                            return (
-                              <p className="text-mute" key={userKey._id}>
-                                {`${authContext.user[userKey]}`}
-                              </p>
-                            );
-                          }
+                </dd>
+              </div>
+              <div ClassName="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
+              <div className="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">
+                  User Role
+                </dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 capitalize">
+                  {" "}
+                  {authContext.user &&
+                    Object.keys(authContext.user).map((userKey) => {
+                      if (!userKey.includes("_id")) {
+                        if (userKey === "role") {
+                          return (
+                            <p className="text-mute" key={userKey._id}>
+                              {`${authContext.user[userKey]}`}
+                            </p>
+                          );
                         }
-                      })}
-                  </dd>
-                </div>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
-                <div className="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    User Role
-                  </dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 capitalize">
-                    {" "}
-                    {authContext.user &&
-                      Object.keys(authContext.user).map((userKey) => {
-                        if (!userKey.includes("_id")) {
-                          if (userKey === "role") {
-                            return (
-                              <p className="text-mute" key={userKey._id}>
-                                {`${authContext.user[userKey]}`}
-                              </p>
-                            );
-                          }
-                        }
-                      })}
-                  </dd>
-                </div>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
-                <div className="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    Last Logged In On:
-                  </dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                    {" "}
-                    {authContext.user &&
-                      Object.keys(authContext.user).map((userKey) => {
-                        if (!userKey.includes("_id")) {
-                          if (userKey === "last_login") {
-                            return (
-                              <p className="text-mute" key={userKey.id}>
-                                {`${authContext.user[userKey]}`}
-                              </p>
-                            );
-                          }
-                        }
-                      })}
-                  </dd>
-                </div>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
-                <div className="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    You Created Your Profile On:
-                  </dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                    {authContext.user &&
-                      Object.keys(authContext.user).map((userKey) => {
-                        if (!userKey.includes("_id")) {
-                          if (userKey === "date_created") {
-                            return (
-                              <p className="text-mute" key={userKey._id}>
-                                {`${authContext.user[userKey]}`}
-                              </p>
-                            );
-                          }
-                        }
-                      })}
-                  </dd>
-                </div>
-                <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
-                <div class="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    {" "}
-                    Enter Your Birthday
-                  </dt>
-                  <dd className="mt-1 mb-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                    <input
-                      type="date"
-                      onChange={(e) => handleInputChange(e, "birthday")}
-                      value={
-                        formData && formData.birthday
-                          ? formData.birthday
-                          : new Date().toJSON().split("T")[0]
                       }
-                    />
-                    <button
-                      onClick={handleSaveClicked}
-                      class="bg-purple-500 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded-full">
-                      Save
-                    </button>
-                  </dd>
-                </div>
+                    })}
+                </dd>
+              </div>
+              <div ClassName="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
+              <div className="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">
+                  Last Logged In On:
+                </dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                  {" "}
+                  {authContext.user &&
+                    Object.keys(authContext.user).map((userKey) => {
+                      if (!userKey.includes("_id")) {
+                        if (userKey === "last_login") {
+                          return (
+                            <p className="text-mute" key={userKey.id}>
+                              {`${authContext.user[userKey]}`}
+                            </p>
+                          );
+                        }
+                      }
+                    })}
+                </dd>
+              </div>
+              <div ClassName="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
+              <div className="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">
+                  You Created Your Profile On:
+                </dt>
+                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                  {authContext.user &&
+                    Object.keys(authContext.user).map((userKey) => {
+                      if (!userKey.includes("_id")) {
+                        if (userKey === "date_created") {
+                          return (
+                            <p className="text-mute" key={userKey._id}>
+                              {`${authContext.user[userKey]}`}
+                            </p>
+                          );
+                        }
+                      }
+                    })}
+                </dd>
+              </div>
+              <div ClassName="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-purple-500 opacity-25"></div>
+              <div ClassName="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt className="text-sm font-medium text-gray-500">
+                  {" "}
+                  Enter Your Birthday
+                </dt>
+                <dd className="mt-1 mb-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                  <input
+                    type="date"
+                    onChange={(e) => handleInputChange(e, "birthday")}
+                    value={
+                      formData && formData.birthday
+                        ? formData.birthday
+                        : new Date().toJSON().split("T")[0]
+                    }
+                  />
+                  <button
+                    onClick={handleSaveClicked}
+                    ClassName="bg-purple-500 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded-full">
+                    Save
+                  </button>
+                </dd>
               </div>
             </div>
-        
+          </div>
+
         </section>
       </Layout>
     </>

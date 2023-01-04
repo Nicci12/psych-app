@@ -11,7 +11,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Category({ category, categoryPosts}) {
+export default function Category({ category, categoryPosts }) {
   return <Categories categoriesObj={{ [category]: categoryPosts }} />
 }
 
@@ -20,6 +20,5 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false,
-  };
+  }
 }
-

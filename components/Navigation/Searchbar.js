@@ -7,7 +7,6 @@ import Image from "next/image";
 
 const Searchbar = () => {
   const authContext = useAuthContext();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">

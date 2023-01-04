@@ -2,7 +2,7 @@ import layoutStyles from "../styles/layout.module.css";
 import Link from "next/link";
 import Searchbar from "./Navigation/Searchbar";
 
-export default function Layout({ children, home }) {
+function Layout({ children, home }) {
   return (
     <>
       <Searchbar />
@@ -44,3 +44,5 @@ export default function Layout({ children, home }) {
     </>
   );
 }
+
+export default Layout
